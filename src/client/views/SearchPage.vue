@@ -8,7 +8,7 @@
 		<div v-else>
 			hallo: {{location}}<br />
 
-			<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id" />
+			<product-item v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: product.selected}" />
 
 			<button :disabled="!selectedProducts.length" @click="search">search</button>
 		</div>
@@ -23,6 +23,7 @@
 	import SearchResult from '../components/SearchResult';
 	import ProductItem from '../components/ProductItem';
 	import {mapGetters, mapState} from 'vuex';
+	import Vue from 'vue';
 
 	export default {
 		name: 'SearchPage',
@@ -85,6 +86,9 @@
 			}
 		},
 		methods: {
+			productClick(product) {
+				Vue.set(product, 'selected', !product.selected);
+			},
 			search() {
 				if (!this.selectedProducts.length) {
 					return false;
@@ -94,7 +98,7 @@
 				// TODO replace with backend request
 				Promise.resolve().then(() => {
 
-				})
+				});
 			},
 			getLocation() {
 				if (this.allowGeolocation && !this.hasLocation) {
@@ -106,3 +110,9 @@
 		}
 	};
 </script>
+
+<style>
+	.selected {
+		background: orange;
+	}
+</style>
