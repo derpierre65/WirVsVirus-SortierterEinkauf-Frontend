@@ -1,4 +1,9 @@
 {
+	"button": {
+		"close": "Schließen",
+		"submit": "Absenden",
+		"search": "Suchen"
+	},
 	"geolocation": {
 		"notAvailable": "Ihr Browser unterstützt keine Geolocation.",
 		"accept": "Bitte bestätigen Sie Ihre aktuelle Position.",

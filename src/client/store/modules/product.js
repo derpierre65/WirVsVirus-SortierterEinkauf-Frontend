@@ -31,6 +31,12 @@ const product = {
 								product_name: 'product 3',
 								amount: 5,
 								recorded_at: '2020-02-02 13:33:37'
+							},
+							{
+								id: 4,
+								product_name: 'product 4',
+								amount: 5,
+								recorded_at: '2020-02-02 13:33:37'
 							}
 						]
 				}).then((response) => {

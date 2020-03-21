@@ -10,6 +10,16 @@ let i18nextConfiguration = {
 		de: {
 			translation: require('./de')
 		}
+	},
+	interpolation: {
+		nestingPrefix: '_(',
+		format(value, format) {
+			if (format === 'bold') {
+				return '<strong>' + value + '</strong>';
+			}
+
+			return value;
+		}
 	}
 };
 

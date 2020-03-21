@@ -17,16 +17,18 @@
 
 			<div class="row product-selection">
 				<product-item class="col-xs-6 col-md-3" v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
+			<div class="row">
+				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
+					<product-item :product="product" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
+				</div>
 			</div>
-
-			<div class="button-box">
-				<button class="button" :disabled="!selectedIds.length" @click="search">search</button>
-			</div>
-
+				<div class="button-box">
+					<button :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
+				</div>
 		</div>
 
 		<template v-if="searched">
-			<search-result v-for="result of results" />
+			<search-result v-for="result of results" :key="result.id" :result="result" />
 
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
@@ -53,7 +55,6 @@
 		},
 		created() {
 			this.$store.dispatch('product/fetch').then(() => {
-				this.selectedProducts = this.$store.state.search.selected;
 				this.getLocation();
 			});
 		},

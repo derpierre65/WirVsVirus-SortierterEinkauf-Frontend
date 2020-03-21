@@ -29,7 +29,7 @@ let router = new Router({
 			component: SearchResultPage
 		},
 		{
-			path: '/market',
+			path: '/market/:id',
 			name: 'market',
 			component: MarketPage
 		},

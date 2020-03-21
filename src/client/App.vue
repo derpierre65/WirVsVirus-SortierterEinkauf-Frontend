@@ -1,7 +1,5 @@
 <template>
-	<div>
-		{{$t('helloWorld')}}
-
+	<div class="layoutBoundary">
 		<router-link :to="{name: 'index'}">start</router-link>
 		<router-link :to="{name: 'info'}">info</router-link>
 		<router-link :to="{name: 'market'}">market</router-link>
