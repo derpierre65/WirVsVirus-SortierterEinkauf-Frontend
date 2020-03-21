@@ -12,7 +12,7 @@ export default new Vuex.Store({
 			latitude: null
 		}
 	},
-	modules: {search, product},
+	modules: { search, product },
 	strict: process.env.NODE_ENV === 'development',
 	mutations: {
 		updateLocation(state, { longitude, latitude }) {

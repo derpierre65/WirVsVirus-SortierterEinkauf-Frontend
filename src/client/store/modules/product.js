@@ -13,32 +13,32 @@ const product = {
 		fetch({ commit }) {
 			return new Promise((resolve, reject) => {
 				Promise.resolve({
-						data: [
-							{
-								id: 1,
-								product_name: 'product 1',
-								amount: 5,
-								recorded_at: '2020-02-02 13:33:37'
-							},
-							{
-								id: 2,
-								product_name: 'product 2',
-								amount: 5,
-								recorded_at: '2020-02-02 13:33:37'
-							},
-							{
-								id: 3,
-								product_name: 'product 3',
-								amount: 5,
-								recorded_at: '2020-02-02 13:33:37'
-							},
-							{
-								id: 4,
-								product_name: 'product 4',
-								amount: 5,
-								recorded_at: '2020-02-02 13:33:37'
-							}
-						]
+					data: [
+						{
+							id: 1,
+							product_name: 'product 1',
+							amount: 5,
+							recorded_at: '2020-02-02 13:33:37'
+						},
+						{
+							id: 2,
+							product_name: 'product 2',
+							amount: 5,
+							recorded_at: '2020-02-02 13:33:37'
+						},
+						{
+							id: 3,
+							product_name: 'product 3',
+							amount: 5,
+							recorded_at: '2020-02-02 13:33:37'
+						},
+						{
+							id: 4,
+							product_name: 'product 4',
+							amount: 5,
+							recorded_at: '2020-02-02 13:33:37'
+						}
+					]
 				}).then((response) => {
 					let products = {};
 					for (let product of response.data) {

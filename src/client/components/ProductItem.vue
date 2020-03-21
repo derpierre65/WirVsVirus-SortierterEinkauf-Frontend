@@ -12,6 +12,6 @@
 				required: true,
 				type: Object
 			}
-		},
+		}
 	};
 </script>

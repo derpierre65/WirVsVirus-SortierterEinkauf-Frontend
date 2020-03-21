@@ -36,12 +36,12 @@
 </template>
 
 <script>
-    import ProductItem from '../components/ProductItem';
-    import Modal, {defaultModalCloseButton} from '../components/Modal';
-    import {mapState} from 'vuex';
-    import product from '../store/modules/product';
+	import ProductItem from '../components/ProductItem';
+	import Modal, {defaultModalCloseButton} from '../components/Modal';
+	import {mapState} from 'vuex';
+	import product from '../store/modules/product';
 
-    export default {
+	export default {
 		name: 'MarketPage',
 		components: { Modal, ProductItem },
 		data() {
