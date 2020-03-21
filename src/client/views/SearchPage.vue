@@ -7,6 +7,8 @@
 				<button @click="getLocation">{{$t('geolocation.request')}}</button>
 			</span>
 			<template v-else>
+				<product-item v-for="i in 10" />
+
 				hallo: {{location}}
 			</template>
 		</div>
@@ -15,10 +17,11 @@
 
 <script>
 	import SearchResult from '../components/SearchResult';
+	import ProductItem from '../components/ProductItem';
 
 	export default {
 		name: 'SearchPage',
-		components: { SearchResult },
+		components: { ProductItem, SearchResult },
 		data() {
 			return {
 				allowGeolocation: false,
