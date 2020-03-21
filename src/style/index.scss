@@ -87,10 +87,19 @@ body {
 }
 
 .result {
-	border: 1px solid var(--base-color);
+	border: 1.5px solid var(--base-color);
 	margin-top: 10px;
-	padding: 5px;
+	padding: 10px;
 	position: relative;
+
+	& a {
+		color: var(--text-color);
+		@include fontBold
+	}
+
+	& address {
+		margin-top: 10px;
+	}
 }
 
 .button-box {
