@@ -1,23 +1,32 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
-	<div v-else>
-		<span v-if="!hasLocation">
+	<div class="container" v-else>
+		<span class="location-box" v-if="hasLocation">
 			{{$t('geolocation.accept')}}
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
 		<div v-else>
-			location: {{location}}<br />
 
-			<div class="row">
+			<div class="location-box">
+				<p>location: {{location}}</p>
+			</div>
+
+			<span class="big-heading">Hallo!</span><br>
+
+			<span class="heading">Was möchtest Du einkaufen?</span><br>
+
+			<div class="row product-selection">
 				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
 					<product-item :product="product" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
 				</div>
 			</div>
 
-			<button :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
+				<div class="button-box">
+					<button class="button" :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
+				</div>
 		</div>
 
-		<template v-if="searched">
+		<template v-if="!searched">
 			<search-result v-for="result of results" :key="result.id" :result="result" />
 
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />

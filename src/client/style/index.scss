@@ -21,3 +21,103 @@
 		max-width: 1400px;
 	}
 }
+
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.location-box {
+  background-color: #336699;
+  height: 80px;
+  color: white;
+  text-align: center;
+}
+
+.big-heading {
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size: 35px;
+  color: #336699;
+  margin-top: 50px;
+  display: block;
+}
+
+.heading {
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size: larger;
+  color: #336699;
+  margin-top: 40px;
+  display: block;
+}
+
+.product-selection {
+  color: #336699;
+}
+
+.result {
+  border:1px solid #336699;
+  margin-top:10px;
+  padding:5px;
+}
+
+.button-box {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #336699;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button:hover {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+  border: solid 2px #336699;
+  color: #336699;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
