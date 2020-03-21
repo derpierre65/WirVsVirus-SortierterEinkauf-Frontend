@@ -10,7 +10,29 @@
 				hallo: {{location}}
 			</template>
 		</div>
+
+		<div>
+			<span>Welche Produkte möchtest du?</span>
+			<div>
+				<button>Eins</button>
+				<button>Zwei</button>
+				<button>Drei</button>
+				<button>Vier</button>
+				<button>Fünf</button>
+			</div>
+
+			<div>
+				<button>Auswahl entfernen</button>
+			</div>
+
+			<div>
+				<button>Einkauf starten</button>
+			</div>
+
+		</div>
+
 	</div>
+
 </template>
 
 <script>
