@@ -1,6 +1,6 @@
 <template>
 	<div>
-		{{$t('helloWorld')}}
+		<!--{{$t('helloWorld')}}-->
 
 		<router-link :to="{name: 'index'}">start</router-link>
 		<router-link :to="{name: 'info'}">info</router-link>
