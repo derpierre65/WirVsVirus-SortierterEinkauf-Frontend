@@ -12,7 +12,7 @@
 
 			<span class="heading">Was möchtest du einkaufen?</span><br>
 
-			<div class="row">
+			<div class="row product-selection">
 				<product-item class="col-xs-6 col-md-3" v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
 			</div>
 
