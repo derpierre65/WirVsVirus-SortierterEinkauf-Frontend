@@ -1,7 +1,7 @@
 <template>
     <div>
         <slot/>
-        <button v-for="button in buttons" @click="buttonClick(button)"></button>
+        <button v-for="button in buttons" @click="buttonClick(button)">{{$t(button.title)}}</button>
     </div>
 </template>
 
