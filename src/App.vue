@@ -38,7 +38,6 @@
 				}
 			},
 			setDarkMode() {
-				console.log(this.darkMode);
 				if (this.darkMode) {
 					document.body.classList.add('dark');
 				}

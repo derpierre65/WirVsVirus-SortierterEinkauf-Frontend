@@ -1,8 +1,21 @@
 <template>
-	<div>
-		<slot />
-		<button v-for="button in buttons" @click="buttonClick(button)">{{$t(button.title)}}</button>
-	</div>
+	<transition name="fade">
+		<div class="modal-mask">
+			<div class="modal-wrapper">
+				<div class="modal-container">
+					<div class="modal-header">
+						<h3 v-html="title"></h3>
+					</div>
+					<div class="modal-body">
+						<slot />
+					</div>
+					<div class="modal-footer">
+						<button class="button" v-for="button in buttons" @click="buttonClick(button)">{{$t(button.title)}}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</transition>
 </template>
 
 <script>
@@ -16,17 +29,20 @@
 	export default {
 		name: 'Modal',
 		props: {
+			title: {
+				type: String,
+				default: ''
+			},
 			buttons: {
 				type: Array,
 				default() {
 					return [defaultModalCloseButton];
 				}
 			},
-			value:
-				{
-					type: Boolean,
-					default: true
-				}
+			value: {
+				type: Boolean,
+				default: true
+			}
 		},
 		data() {
 			return {

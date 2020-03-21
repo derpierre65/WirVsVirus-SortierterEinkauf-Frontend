@@ -12,6 +12,7 @@
 		color: orange !important;
 	}
 </style>
+
 <script>
 	export default {
 		name: 'SearchResult',
@@ -23,7 +24,6 @@
 		},
 		methods: {
 			star(id) {
-				console.log('star');
 				this.$store.dispatch('search/star', id);
 			}
 		}
