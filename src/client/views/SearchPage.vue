@@ -31,36 +31,19 @@
 		data() {
 			return {
 				allowGeolocation: typeof navigator.geolocation !== 'undefined',
-				searched: false,
-				// TODO get this from backend
-				products: [
-					{
-						id: 1,
-						product_name: 'product 1',
-						amount: 5,
-						recorded_at: '2020-02-02 13:33:37'
-					},
-					{
-						id: 2,
-						product_name: 'product 2',
-						amount: 5,
-						recorded_at: '2020-02-02 13:33:37'
-					},
-					{
-						id: 3,
-						product_name: 'product 3',
-						amount: 5,
-						recorded_at: '2020-02-02 13:33:37'
-					}
-				]
+				searched: false
 			};
 		},
 		created() {
-			this.selectedProducts = this.$store.state.search.selected;
-			this.getLocation();
+			this.$store.dispatch('product/fetch').then(() => {
+				this.selectedProducts = this.$store.state.search.selected;
+				this.getLocation();
+			});
 		},
 		computed: {
 			...mapState(['location']),
+			// ...mapState('product', { products: 'entries' }),
+			...mapGetters('product', { products: 'entriesArray' }),
 			...mapGetters(['hasLocation']),
 			selectedProducts: {
 				// get selected products

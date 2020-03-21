@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import search from './modules/search';
+import product from './modules/product';
 
 Vue.use(Vuex);
 
@@ -11,7 +12,7 @@ export default new Vuex.Store({
 			latitude: null
 		}
 	},
-	modules: {search},
+	modules: {search, product},
 	strict: process.env.NODE_ENV === 'development',
 	mutations: {
 		updateLocation(state, { longitude, latitude }) {

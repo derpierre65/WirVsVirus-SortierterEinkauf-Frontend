@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const autoprefixer = require('autoprefixer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -51,16 +50,15 @@ plugins.push(new CopyWebpackPlugin([{
 	to: 'assets'
 }]));
 
-plugins.push(new CompressionPlugin());
-
 let config = {
 	name: appName,
-	mode: 'development',
+	mode: process.env.NODE_ENV || 'development',
 	devServer: {
 		/*https: true,
 		key: fs.readFileSync('/path/to/server.key'),
 		cert: fs.readFileSync('/path/to/server.crt'),
 		ca: fs.readFileSync('/path/to/ca.pem'),*/
+		historyApiFallback: true,
 		hot: true,
 		host: '0.0.0.0',
 		port: 10000
@@ -95,7 +93,7 @@ let config = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							hmr: process.env.NODE_ENV === 'development'
+							hmr: process.env.NODE_ENV !== 'production'
 						}
 					},
 					'css-loader',
@@ -116,6 +114,7 @@ let config = {
 
 if (process.env.NODE_ENV === 'production') {
 	config.devtool = false;
+	config.plugins.push(new CompressionPlugin());
 	config.plugins.unshift(new CleanWebpackPlugin());
 	config.plugins.push(new webpack.HashedModuleIdsPlugin());
 	config.optimization = {
