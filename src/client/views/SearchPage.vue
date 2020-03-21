@@ -49,9 +49,7 @@
 
 			</div>
 
-			<product-item v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: product.selected}" />
-
-
+			<!-- <product-item v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: product.selected}" /> -->
 
 			<button class="button" :disabled="!selectedProducts.length" @click="search">search</button>
 		</div>
@@ -59,19 +57,7 @@
 		<template v-if="searched">
 			<search-result v-for="i in 20" :key="i" />
 		</template>
-		<div class = "container">
-			<div class="row">
-  				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
- 				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
-				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
-			</div>
-			<div class="row">
-  				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
- 				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
-				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
-			</div>
-			<button class = "submitButton">Suche starten</button><
-		</div>
+
 	</div>
 </template>
 
