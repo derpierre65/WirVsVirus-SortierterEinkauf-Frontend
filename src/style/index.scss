@@ -35,8 +35,18 @@ h3 {
 	}
 }
 
+:root {
+	--base-color: rgb(51, 102, 153);
+	--base-font-color: #fff;
+}
+
+.dark {
+	--base-color: rgb(28, 65, 102);
+	--base-font-color: #D2D2D2;
+}
+
 body {
-	color: #336699;
+	color: var(--base-color);
 }
 
 .container {
@@ -44,16 +54,16 @@ body {
 }
 
 .menuBackground {
-	background-color: #336699;
+	background-color: var(--base-color);
 	height: 80px;
-	color: white;
+	color: var(--base-font-color);
 	text-align: center;
 }
 
 .location-box {
-	background-color: #336699;
+	background-color: var(--base-color);
 	height: 80px;
-	color: white;
+	color: #fff;
 	text-align: center;
 }
 
@@ -74,7 +84,7 @@ body {
 }
 
 .result {
-	border: 1px solid #336699;
+	border: 1px solid var(--base-color);
 	margin-top: 10px;
 	padding: 5px;
 }
@@ -87,9 +97,9 @@ body {
 .button {
 	display: inline-block;
 	border-radius: 4px;
-	background-color: #336699;
-	border: 2px solid #336699;
-	color: #FFFFFF;
+	background-color: var(--base-color);
+	border: 2px solid var(--base-color);
+	color: var(--base-font-color);
 	text-align: center;
 	font-size: 28px;
 	padding: 10px;
@@ -99,9 +109,9 @@ body {
 	margin: 5px;
 
 	&:hover {
-		background-color: white;
-		border: solid 2px #336699;
-		color: #336699;
+		background-color: var(--base-font-color);
+		border: solid 2px var(--base-color);
+		color: var(--base-color);
 		transition: background-color 0.5s;
 	}
 }
