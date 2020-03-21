@@ -1,23 +1,65 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
-	<div v-else>
-		<span v-if="!hasLocation">
+	<div class="container" v-else>
+		<span v-if="hasLocation">
 			{{$t('geolocation.accept')}}
-			<button @click="getLocation">{{$t('geolocation.request')}}</button>
+			<button class="button" @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
-		<div v-else>
-			hallo: {{location}}<br />
+		<div class="container" v-else>
+			hallo: {{location}}<br><br>
+
+			<span class="big-heading">Hallo!</span><br>
+
+			<span class="heading">Was möchtest du einkaufen?</span><br>
+
+			<div class="row">
+				<div class="col-1">
+					<button>Button 1</button>
+				</div>
+				<div class="col-1">
+					<button>Button 2</button>
+				</div>
+				<div class="col-1">
+					<button>Button 3</button>
+				</div>
+				<div class="col-1">
+					<button>Button 4</button>
+				</div>
+				<div class="col-1">
+					<button>Button 5</button>
+				</div>
+				<div class="col-1">
+					<button>Button 6</button>
+				</div>
+				<div class="col-1">
+					<button>Button 7</button>
+				</div>
+				<div class="col-1">
+					<button>Button 8</button>
+				</div>
+				<div class="col-1">
+					<button>Button 9</button>
+				</div>
+				<div class="col-1">
+					<button>Button 10</button>
+				</div>
+				<div class="col-1">
+					<button>Button 11</button>
+				</div>
+
+			</div>
 
 			<product-item v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: product.selected}" />
 
-			<button :disabled="!selectedProducts.length" @click="search">search</button>
+
+
+			<button class="button" :disabled="!selectedProducts.length" @click="search">search</button>
 		</div>
 
 		<template v-if="searched">
 			<search-result v-for="i in 20" :key="i" />
 		</template>
 		<div class = "container">
-			<center>
 			<div class="row">
   				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
  				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
@@ -28,8 +70,7 @@
  				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
 				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
 			</div>
-			</center>
-			<center><button class = "submitButton">Suche starten</button></center>
+			<button class = "submitButton">Suche starten</button><
 		</div>
 	</div>
 </template>
