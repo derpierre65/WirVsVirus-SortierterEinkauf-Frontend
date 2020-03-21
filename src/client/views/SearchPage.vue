@@ -18,7 +18,7 @@
 		</div>
 
 		<template v-if="searched">
-			<search-result v-for="result of results" />
+			<search-result v-for="result of results" :key="result.id" :result="result" />
 
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
