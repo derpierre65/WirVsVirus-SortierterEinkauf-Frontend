@@ -6,8 +6,8 @@
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
 		<div v-else>
-			<h1>Hallo!</h1><br>
-			<h2>Was möchtest Du einkaufen?</h2><br>
+			<h1>{{$t('landingPage.greeting')}}</h1><br>
+			<h2>{{$t('landingPage.introPhrase')}}</h2><br>
 
 			<div class="row product-selection">
 				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
