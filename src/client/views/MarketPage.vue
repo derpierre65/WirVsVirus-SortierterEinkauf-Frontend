@@ -1,11 +1,12 @@
 <template>
 	<div>
 		<div>
-			<h1>Informationen für <strong>{{market.name}}</strong></h1>
-			Adresse: {{market.address}}<br>
-			Popularität: {{market.userFeedback}}<br>
-			Besucherzähler: {{market.amountOfPeople > 0 ? market.amountOfPeople : 'Keine Messdatenaten vorhanden'}}<br>
-			Durchschnittliche Aufenhaltsdauer: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : 'Keine Messdatenaten vorhanden'}}<br>
+			<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
+			{{$t('market.address')}}: {{market.address}}<br>
+			{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
+			{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
+			{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
+			{{$t('market.recorded_at')}}: {{market.recorded_at !== '' ? market.recorded_at : $t('statisticFeedback.noData')}}<br>
 		</div>
 
 		<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"
@@ -15,20 +16,20 @@
 			<h1>{{products[productFeedbackId].product_name}}</h1>
 			<ul>
                 <li><label><input name="quantityCheck" type="radio" value="0" v-model.number="quantityCheck">
-                    LEER</label></li>
+                    {{$t('userFeedback.quantityEmpty')}}</label></li>
 				<li><label><input name="quantityCheck" type="radio" value="1" v-model.number="quantityCheck">
-                    WENIG</label></li>
+                    {{$t('userFeedback.quantityLow')}}</label></li>
 				<li><label><input name="quantityCheck" type="radio" value="2" v-model.number="quantityCheck">
-                    VIEL</label></li>
+                    {{$t('userFeedback.quantityHigh')}}</label></li>
 			</ul>
 		</modal>
 
 		<div>
 			<h1>Wie viele Menschen waren einkaufen?</h1>
 			<ul>
-				<li><input name="population" type="radio"> KEINE</li>
-				<li><input name="population" type="radio"> WENIG</li>
-				<li><input name="population" type="radio"> VIEL</li>
+				<li><input name="population" type="radio"> {{$t('userFeedback.empty')}}</li>
+				<li><input name="population" type="radio"> {{$t('userFeedback.low')}}</li>
+				<li><input name="population" type="radio"> {{$t('userFeedback.high')}}</li>
 			</ul>
 			<button @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
 		</div>
