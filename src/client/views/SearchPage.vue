@@ -7,47 +7,10 @@
 		</span>
 		<div v-else>
 			location: {{location}}<br />
-		<div class="container" v-else>
-			hallo: {{location}}<br><br>
 
 			<span class="big-heading">Hallo!</span><br>
 
 			<span class="heading">Was möchtest du einkaufen?</span><br>
-
-			<div class="row">
-				<div class="col-1">
-					<button>Button 1</button>
-				</div>
-				<div class="col-1">
-					<button>Button 2</button>
-				</div>
-				<div class="col-1">
-					<button>Button 3</button>
-				</div>
-				<div class="col-1">
-					<button>Button 4</button>
-				</div>
-				<div class="col-1">
-					<button>Button 5</button>
-				</div>
-				<div class="col-1">
-					<button>Button 6</button>
-				</div>
-				<div class="col-1">
-					<button>Button 7</button>
-				</div>
-				<div class="col-1">
-					<button>Button 8</button>
-				</div>
-				<div class="col-1">
-					<button>Button 9</button>
-				</div>
-				<div class="col-1">
-					<button>Button 10</button>
-				</div>
-				<div class="col-1">
-					<button>Button 11</button>
-				</div>
 
 			<div class="row">
 				<product-item class="col-xs-6 col-md-3" v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
@@ -55,8 +18,7 @@
 
 			<!-- <product-item v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: product.selected}" /> -->
 
-			<button class="button" :disabled="!selectedProducts.length" @click="search">search</button>
-			<button :disabled="!selectedIds.length" @click="search">search</button>
+			<button class="button" :disabled="!selectedIds.length" @click="search">search</button>
 		</div>
 
 		<template v-if="searched">
