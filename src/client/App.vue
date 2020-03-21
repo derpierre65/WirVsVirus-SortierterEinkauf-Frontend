@@ -1,6 +1,6 @@
 <template>
 	<div>
-		hello world!
+		{{$t('helloWorld')}}
 
 		<router-view />
 	</div>
