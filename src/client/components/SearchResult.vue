@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="border:1px solid black; margin-top:10px;padding:5px;">
 		<span>Marketname</span><br />
 		<address>Babelsberger Straße 16, Potsdam</address>
 	</div>

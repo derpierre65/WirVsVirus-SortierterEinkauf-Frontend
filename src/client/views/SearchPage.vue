@@ -9,10 +9,12 @@
 			location: {{location}}<br />
 
 			<div class="row">
-				<product-item class="col-xs-6 col-md-3" v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
+				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
+					<product-item :product="product" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
+				</div>
 			</div>
 
-			<button :disabled="!selectedIds.length" @click="search">search</button>
+			<button :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
 		</div>
 
 		<template v-if="searched">

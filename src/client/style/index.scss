@@ -6,3 +6,18 @@
 @import 'fa/fa';
 
 @import 'layout/grid';
+
+.layoutBoundary {
+	margin: 0 auto;
+
+	@include screen-md-down {
+		padding: 0 10px;
+		width: 100%;
+	}
+
+	@include screen-lg {
+		padding: 0 20px;
+		min-width: 1000px;
+		max-width: 1400px;
+	}
+}
