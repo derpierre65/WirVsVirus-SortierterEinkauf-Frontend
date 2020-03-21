@@ -10,6 +10,8 @@
 				hallo: {{location}}<br />
 
 				<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"/>
+
+				<button :disabled="!selectedProducts.length">search</button>
 			</template>
 		</div>
 	</div>
@@ -56,6 +58,11 @@
 		created() {
 			this.allowGeolocation = typeof navigator.geolocation !== 'undefined';
 			this.getLocation();
+		},
+		computed: {
+			selectedProducts() {
+				return this.products.filter((product) => product.selected);
+			}
 		},
 		methods: {
 			getLocation() {
