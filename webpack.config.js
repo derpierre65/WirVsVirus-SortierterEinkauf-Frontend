@@ -32,7 +32,7 @@ let plugins = [
 		__APP_NAME__: JSON.stringify(appName)
 	}),
 	new MiniCssExtractPlugin({
-		filename: 'assets/css/[name].css'
+		filename: 'assets/css/[name].css?v=[hash:8]'
 	})
 ];
 
