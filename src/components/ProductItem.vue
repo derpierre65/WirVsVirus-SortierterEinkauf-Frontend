@@ -1,5 +1,5 @@
 <template>
-	<div style="border:1px solid black;">
+	<div class="product-item">
 		{{product}}
 	</div>
 </template>
