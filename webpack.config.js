@@ -37,18 +37,18 @@ let plugins = [
 ];
 
 plugins.push(new HtmlWebpackPlugin({
-	template: path.resolve(root, 'src/client/index.html'),
+	template: path.resolve(root, 'src/index.html'),
 	inject: true,
 	minify: minifyOptions
 }));
 plugins.push(new HtmlWebpackPlugin({
-	template: path.resolve(root, 'src/client/50x.html'),
+	template: path.resolve(root, 'src/50x.html'),
 	filename: '50x.html',
 	inject: false,
 	minify: minifyOptions
 }));
 plugins.push(new CopyWebpackPlugin([{
-	from: './src/client/assets',
+	from: './src/assets',
 	to: 'assets'
 }]));
 
@@ -66,7 +66,7 @@ let config = {
 		port: 10000
 	},
 	entry: {
-		[appName]: ['babel-polyfill', path.resolve(root, 'src/client/main.js'), path.resolve(root, 'src/client/style/index.scss')]
+		[appName]: ['babel-polyfill', path.resolve(root, 'src/main.js'), path.resolve(root, 'src/style/index.scss')]
 	},
 	output: {
 		publicPath,
