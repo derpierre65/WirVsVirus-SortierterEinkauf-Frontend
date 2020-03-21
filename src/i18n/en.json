@@ -28,6 +28,14 @@
   "statisticFeedback": {
     "noData": "No data found"
   },
+  "navigation": {
+    "landingPage": "Start",
+    "infoPage": "Information",
+    "market": "Stores"
+  },
+  "infoPage": {
+    "mainText": "This website was created within the #WirvsVirus Hackathon in Germany. 20.-22.03,2020."
+  },
   "general": {
     "popularityRequest": "How many other people where shopping in this store?"
   }
