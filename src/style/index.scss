@@ -36,17 +36,22 @@ h3 {
 }
 
 :root {
-	--base-color: rgb(51, 102, 153);
+	--base-color: rgb(28, 51, 74);
 	--base-font-color: #fff;
+	--text-color: var(--base-color);
+	--background-color: #EEEEEE;
 }
 
 .dark {
 	--base-color: rgb(28, 65, 102);
 	--base-font-color: #D2D2D2;
+	--text-color: #D2D2D2;
+	--background-color: rgb(20, 31, 43);
 }
 
 body {
-	color: var(--base-color);
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 .container {
@@ -63,7 +68,7 @@ body {
 .location-box {
 	background-color: var(--base-color);
 	height: 80px;
-	color: #fff;
+	color: #FFFFFF;
 	text-align: center;
 }
 
