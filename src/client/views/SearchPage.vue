@@ -16,6 +16,21 @@
 		<template v-if="searched">
 			<search-result v-for="i in 20" :key="i" />
 		</template>
+		<div class = "container">
+			<center>
+			<div class="row">
+  				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
+ 				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
+				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
+			</div>
+			<div class="row">
+  				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
+ 				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
+				<div class="col-12 col-md-4">.col-12 .col-md-4</div>
+			</div>
+			</center>
+			<center><button class = "submitButton">Suche starten</button></center>
+		</div>
 	</div>
 </template>
 
