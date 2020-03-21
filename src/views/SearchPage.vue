@@ -6,7 +6,6 @@
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
 		<div v-else>
-
 			<div class="location-box">
 				<p>location: {{location}}</p>
 			</div>
@@ -21,12 +20,12 @@
 				</div>
 			</div>
 
-				<div class="button-box">
-					<button class="button" :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
-				</div>
+			<div class="button-box">
+				<button class="button" :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
+			</div>
 		</div>
 
-		<template v-if="!searched">
+		<template v-if="searched">
 			<search-result v-for="result of results" :key="result.id" :result="result" />
 
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
