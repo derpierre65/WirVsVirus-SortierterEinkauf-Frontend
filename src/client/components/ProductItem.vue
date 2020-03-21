@@ -1,6 +1,6 @@
 <template>
-	<div @click="toggleSelect" style="border:1px solid black;" :class="{selected}">
-		product
+	<div @click="toggleSelect" style="border:1px solid black; width: 200px;" :class="{selected}">
+		{{product}}
 	</div>
 </template>
 
@@ -9,13 +9,22 @@
 		name: 'ProductItem',
 		data() {
 			return {
-				selected: false,
+				selected: false
+			};
+		},
+		props: {
+			value: {
+				type: Boolean
+			},
+			product: {
+				required: true,
+				type: Object
 			}
 		},
 		methods: {
 			toggleSelect() {
 				this.selected = !this.selected;
-				console.log('lol');
+				this.$emit('input', this.selected);
 			}
 		}
 	};

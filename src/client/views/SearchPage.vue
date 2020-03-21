@@ -7,9 +7,9 @@
 				<button @click="getLocation">{{$t('geolocation.request')}}</button>
 			</span>
 			<template v-else>
-				<product-item v-for="i in 10" />
+				hallo: {{location}}<br />
 
-				hallo: {{location}}
+				<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"/>
 			</template>
 		</div>
 	</div>
@@ -29,7 +29,28 @@
 				location: {
 					latitude: 0,
 					longitude: 0
-				}
+				},
+				// TODO get this from backend
+				products: [
+					{
+						id: 1,
+						product_name: 'product 1',
+						amount: 5,
+						recorded_at: '2020-02-02 13:33:37'
+					},
+					{
+						id: 2,
+						product_name: 'product 2',
+						amount: 5,
+						recorded_at: '2020-02-02 13:33:37'
+					},
+					{
+						id: 3,
+						product_name: 'product 3',
+						amount: 5,
+						recorded_at: '2020-02-02 13:33:37'
+					}
+				]
 			};
 		},
 		created() {

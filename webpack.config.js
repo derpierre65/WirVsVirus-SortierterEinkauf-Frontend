@@ -146,7 +146,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 else {
 	config.plugins.push(new webpack.HotModuleReplacementPlugin());
-	config.entry[appName].unshift('webpack-hot-middleware/client?reload=true');
 }
 
 module.exports = config;
