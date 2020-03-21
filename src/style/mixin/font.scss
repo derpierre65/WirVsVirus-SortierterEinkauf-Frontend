@@ -1,0 +1,68 @@
+@mixin fontDefault {
+	@include screen-md-up {
+		font-size: 14px;
+	}
+
+	@include screen-sm-down {
+		font-size: 14px;
+	}
+}
+
+@mixin fontSmall {
+	font-weight: 400;
+
+	@include screen-md-up {
+		font-size: 12px;
+	}
+
+	@include screen-sm-down {
+		font-size: 12px;
+	}
+}
+
+@mixin fontBold {
+	font-weight: 600;
+}
+
+@mixin fontHeadline {
+	font-weight: 400;
+	line-height: 1.28;
+
+	@include screen-md-up {
+		font-size: 18px;
+	}
+
+	@include screen-sm-down {
+		font-size: 18px;
+	}
+}
+
+@mixin fontSection {
+	font-weight: 300;
+	line-height: 1.28;
+
+	@include screen-md-up {
+		font-size: 23px;
+	}
+
+	@include screen-sm-down {
+		font-size: 20px;
+	}
+}
+
+@mixin fontTitle {
+	font-weight: 300;
+	line-height: 1.05;
+
+	@include screen-md-up {
+		font-size: 28px;
+	}
+
+	@include screen-sm-down {
+		font-size: 23px;
+	}
+}
+
+@mixin lineHeight {
+	line-height: 1.48;
+}

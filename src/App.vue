@@ -6,7 +6,7 @@
 			<router-link :to="{name: 'market'}">market</router-link>
 		</div>
 		<div class="layoutBoundary">
-			<router-view />
+			<router-view class="container" />
 		</div>
 	</div>
 </template>

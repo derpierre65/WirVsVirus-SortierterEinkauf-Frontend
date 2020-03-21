@@ -1,18 +1,13 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
-	<div class="container" v-else>
+	<div v-else>
 		<span class="location-box" v-if="!hasLocation">
 			{{$t('geolocation.accept')}}
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
 		<div v-else>
-			<div class="location-box">
-				<p>location: {{location}}</p>
-			</div>
-
-			<span class="big-heading">Hallo!</span><br>
-
-			<span class="heading">Was möchtest Du einkaufen?</span><br>
+			<h1>Hallo!</h1><br>
+			<h2>Was möchtest Du einkaufen?</h2><br>
 
 			<div class="row product-selection">
 				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
@@ -21,7 +16,7 @@
 			</div>
 
 			<div class="button-box">
-				<button class="button" :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
+				<button class="button" :disabled="!selectedIds.length" @click="search"><i class="fa fa-search"></i> {{$t('button.search')}}</button>
 			</div>
 		</div>
 
