@@ -21,6 +21,8 @@ const minifyOptions = {
 	useShortDoctype: true
 };
 
+let mode = process.env.NODE_ENV || 'development';
+let publicPath = mode !== 'production' ? '/' : '/app/';
 let appName = 'main';
 let plugins = [
 	new webpack.ProgressPlugin(),
@@ -52,7 +54,7 @@ plugins.push(new CopyWebpackPlugin([{
 
 let config = {
 	name: appName,
-	mode: process.env.NODE_ENV || 'development',
+	mode,
 	devServer: {
 		/*https: true,
 		key: fs.readFileSync('/path/to/server.key'),
@@ -67,7 +69,7 @@ let config = {
 		[appName]: ['babel-polyfill', path.resolve(root, 'src/client/main.js'), path.resolve(root, 'src/client/style/index.scss')]
 	},
 	output: {
-		publicPath: process.env.NODE_ENV !== 'production' ? '/' : '/app/',
+		publicPath,
 		path: path.resolve(root, 'dist'),
 		filename: 'assets/js/[name].min.js?v=[hash:8]'
 	},
@@ -93,11 +95,16 @@ let config = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							hmr: process.env.NODE_ENV !== 'production'
+							hmr: mode !== 'production'
 						}
 					},
 					'css-loader',
-					'sass-loader'
+					{
+						loader: 'sass-loader',
+						options: {
+							prependData: '$baseUrl: "' + (mode === 'development' ? '/' : '/app/') + '";'
+						}
+					}
 				]
 			}
 		]
@@ -112,7 +119,7 @@ let config = {
 	devtool: 'cheap-module-source-map'
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (mode === 'production') {
 	config.devtool = false;
 	config.plugins.push(new CompressionPlugin());
 	config.plugins.unshift(new CleanWebpackPlugin());

@@ -61,6 +61,7 @@
 			},
 			nextSearchPage(state) {
 				// TODO replace with backend request
+				// TODO move to another library - required later in favorite-market
 				(new Promise((resolve) => {
 					//<editor-fold desc="remove">
 					let data = [];
@@ -103,7 +104,7 @@
 					}
 					//</editor-fold>
 
-					setTimeout(() => resolve({ data }), 5000);
+					setTimeout(() => resolve({ data }), 200);
 				})).then((response) => {
 					this.searchPage++;
 					this.searchMaxPages = 1;
