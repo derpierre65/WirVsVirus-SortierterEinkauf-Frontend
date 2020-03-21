@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="menuBackground">
-			<router-link :to="{name: 'index'}">start</router-link>
-			<router-link :to="{name: 'info'}">info</router-link>
-			<router-link :to="{name: 'favorite-markets'}">favorite-market</router-link>
+			<router-link :to="{name: 'index'}">{{$t('navigation.landingPage')}}</router-link>
+			<router-link :to="{name: 'info'}">{{$t('navigation.infoPage')}}</router-link>
+			<router-link :to="{name: 'favorite-markets'}">{{$t('navigation.market')}}</router-link>
 
 			<i class="fa fa32" :class="{'fa-moon-o': !darkMode, 'fa-sun-o': darkMode}" @click="toggleDarkMode"></i>
 		</div>
