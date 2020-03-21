@@ -88,6 +88,20 @@ body {
 	display: block;
 }
 
+.product-item {
+	background-color: var(--base-color);
+	margin: 10px;
+	padding: 10px;
+	color: var(--base-font-color);
+
+	&.selected {
+		background-color: var(--base-font-color);
+		border: solid 2px var(--base-color);
+		color: var(--base-color);
+		transition: background-color 0.5s;
+	}
+}
+
 .result {
 	border: 1px solid var(--base-color);
 	margin-top: 10px;
