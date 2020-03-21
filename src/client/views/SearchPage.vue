@@ -16,14 +16,13 @@
 			<span class="heading">Was möchtest Du einkaufen?</span><br>
 
 			<div class="row product-selection">
-				<product-item class="col-xs-6 col-md-3" v-for="product in products" :product="product" :key="product.id" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
-			<div class="row">
 				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
 					<product-item :product="product" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
 				</div>
 			</div>
+
 				<div class="button-box">
-					<button :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
+					<button class="button" :disabled="!selectedIds.length" @click="search">{{$t('button.search')}}</button>
 				</div>
 		</div>
 
