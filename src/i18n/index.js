@@ -5,10 +5,14 @@ import Vue from 'vue';
 Vue.use(VueI18Next);
 
 let i18nextConfiguration = {
+	lng: 'de',
 	fallbackLng: 'de',
 	resources: {
 		de: {
 			translation: require('./de')
+		},
+		en: {
+			translation: require('./en')
 		}
 	},
 	interpolation: {

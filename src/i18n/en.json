@@ -1,42 +1,46 @@
 {
-  "button": {
-    "close": "Close",
-    "submit": "Submit",
-    "search": "Search"
-  },
-  "geolocation": {
-    "notAvailable": "Your browser does not support geolocation.",
-    "accept": "Please submit your current location",
-    "request": "Requesting location"
-  },
-  "market": {
-    "information": "Information about",
-    "address": "Address",
-    "userFeedback": "Popularity",
-    "amountOfPeople": "Visitors",
-    "averagePresenceTime": "Average spending time",
-    "recorded_at": "Date entry"
-  },
-  "userFeedback": {
-    "quantityEmpty": "Empty",
-    "quantityLow": "Low",
-    "quantityHigh": "High",
-    "empty": "Empty",
-    "low": "Not many",
-    "high": "A lot"
-  },
-  "statisticFeedback": {
-    "noData": "No data found"
-  },
-  "navigation": {
-    "landingPage": "Start",
-    "infoPage": "Information",
-    "market": "Stores"
-  },
-  "infoPage": {
-    "mainText": "This website was created within the #WirvsVirus Hackathon in Germany. 20.-22.03,2020."
-  },
-  "general": {
-    "popularityRequest": "How many other people where shopping in this store?"
-  }
+	"button": {
+		"close": "Close",
+		"submit": "Submit",
+		"search": "Search"
+	},
+	"geolocation": {
+		"notAvailable": "Your browser does not support geolocation.",
+		"accept": "Please submit your current location",
+		"request": "Requesting location"
+	},
+	"market": {
+		"information": "Information about",
+		"address": "Address",
+		"userFeedback": "Popularity",
+		"amountOfPeople": "Visitors",
+		"averagePresenceTime": "Average spending time",
+		"recorded_at": "Date entry"
+	},
+	"userFeedback": {
+		"quantityEmpty": "Empty",
+		"quantityLow": "Low",
+		"quantityHigh": "High",
+		"empty": "Empty",
+		"low": "Not many",
+		"high": "A lot"
+	},
+	"statisticFeedback": {
+		"noData": "No data found"
+	},
+	"navigation": {
+		"home": "Search",
+		"info": "Information",
+		"market": "Stores"
+	},
+	"infoPage": {
+		"mainText": "This website was created within the #WirvsVirus Hackathon in Germany. 20.-22.03,2020."
+	},
+	"landingPage": {
+		"greeting": "Greetings!",
+		"introPhrase": "What would you like to buy?"
+	},
+	"general": {
+		"popularityRequest": "How many other people where shopping in this store?"
+	}
 }
