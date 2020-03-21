@@ -1,35 +1,32 @@
 <template>
-	<div>
+	<div class="main">
 		<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 		<div v-else>
 			<span v-if="!locationGiven">
 				{{$t('geolocation.accept')}}
-				<button @click="getLocation">{{$t('geolocation.request')}}</button>
+				<button class="default" @click="getLocation">{{$t('geolocation.request')}}</button>
 			</span>
 			<template v-else>
 				hallo: {{location}}
 			</template>
 		</div>
 
-		<div>
-			<span>Welche Produkte möchtest du?</span>
-			<div>
-				<button>Eins</button>
-				<button>Zwei</button>
-				<button>Drei</button>
-				<button>Vier</button>
-				<button>Fünf</button>
+		<div class="productSelector">
+			<span class="ps_caption">Welche Produkte möchtest du?</span>
+
+			<div class="productList">
+				<button class="productItem">Eins</button>
+				<button class="productItem">Zwei</button>
+				<button class="productItem">Drei</button>
+				<button class="productItem">Vier</button>
+				<button class="productItem">Fünf</button>
 			</div>
 
-			<div>
-				<button>Auswahl entfernen</button>
-			</div>
-
-			<div>
-				<button>Einkauf starten</button>
-			</div>
+			<button class="remove">Auswahl entfernen</button>
 
 		</div>
+
+		<button class="submit">Einkauf starten</button>
 
 	</div>
 
