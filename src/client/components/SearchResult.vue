@@ -1,6 +1,7 @@
 <template>
 	<div>
-		search result
+		<span>Marketname</span><br />
+		<address>Babelsberger Straße 16, Potsdam</address>
 	</div>
 </template>
 

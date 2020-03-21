@@ -1,37 +1,36 @@
 <template>
-	<div>
-		<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
+	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
+	<div v-else>
+		<span v-if="!hasLocation">
+			{{$t('geolocation.accept')}}
+			<button @click="getLocation">{{$t('geolocation.request')}}</button>
+		</span>
 		<div v-else>
-			<span v-if="!locationGiven">
-				{{$t('geolocation.accept')}}
-				<button @click="getLocation">{{$t('geolocation.request')}}</button>
-			</span>
-			<template v-else>
-				hallo: {{location}}<br />
+			hallo: {{location}}<br />
 
-				<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"/>
+			<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id" />
 
-				<button :disabled="!selectedProducts.length">search</button>
-			</template>
+			<button :disabled="!selectedProducts.length" @click="search">search</button>
 		</div>
+
+		<template v-if="searched">
+			<search-result v-for="i in 20" />
+		</template>
 	</div>
 </template>
 
 <script>
 	import SearchResult from '../components/SearchResult';
 	import ProductItem from '../components/ProductItem';
+	import {mapGetters, mapState} from 'vuex';
 
 	export default {
 		name: 'SearchPage',
 		components: { ProductItem, SearchResult },
 		data() {
 			return {
-				allowGeolocation: false,
-				locationGiven: false,
-				location: {
-					latitude: 0,
-					longitude: 0
-				},
+				allowGeolocation: typeof navigator.geolocation !== 'undefined',
+				searched: false,
 				// TODO get this from backend
 				products: [
 					{
@@ -56,20 +55,51 @@
 			};
 		},
 		created() {
-			this.allowGeolocation = typeof navigator.geolocation !== 'undefined';
+			this.selectedProducts = this.$store.state.search.selected;
 			this.getLocation();
 		},
 		computed: {
-			selectedProducts() {
-				return this.products.filter((product) => product.selected);
+			...mapState(['location']),
+			...mapGetters(['hasLocation']),
+			selectedProducts: {
+				// get selected products
+				get() {
+					return this.products.filter((product) => product.selected);
+				},
+				// set selected products by id array
+				set(products) {
+					for (let product of this.products) {
+						if (products.includes(product.id)) {
+							product.selected = true;
+						}
+					}
+				}
+			},
+			/**
+			 * get a list of selected product ids
+			 *
+			 * @returns {*}
+			 */
+			selectedProductIds() {
+				return this.selectedProducts.map((product) => product.id);
 			}
 		},
 		methods: {
+			search() {
+				if (!this.selectedProducts.length) {
+					return false;
+				}
+
+				this.$store.dispatch('search/setSelected', this.selectedProductIds);
+				// TODO replace with backend request
+				Promise.resolve().then(() => {
+
+				})
+			},
 			getLocation() {
-				if (this.allowGeolocation) {
+				if (this.allowGeolocation && !this.hasLocation) {
 					navigator.geolocation.getCurrentPosition(({ coords }) => {
-						this.locationGiven = true;
-						this.location = { latitude: coords.latitude, longitude: coords.longitude };
+						this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
 					});
 				}
 			}

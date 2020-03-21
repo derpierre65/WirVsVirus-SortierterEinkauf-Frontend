@@ -21,10 +21,18 @@
 				type: Object
 			}
 		},
+		created() {
+			this.selected = this.value;
+		},
 		methods: {
 			toggleSelect() {
 				this.selected = !this.selected;
 				this.$emit('input', this.selected);
+			}
+		},
+		watch: {
+			value(newValue) {
+				this.selected = !!newValue;
 			}
 		}
 	};
