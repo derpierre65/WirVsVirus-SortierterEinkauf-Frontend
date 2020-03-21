@@ -67,7 +67,7 @@ let config = {
 		[appName]: ['babel-polyfill', path.resolve(root, 'src/client/main.js'), path.resolve(root, 'src/client/style/index.scss')]
 	},
 	output: {
-		publicPath: '/app/',
+		publicPath: process.env.NODE_ENV !== 'production' ? '/' : '/app/',
 		path: path.resolve(root, 'dist'),
 		filename: 'assets/js/[name].min.js?v=[hash:8]'
 	},
