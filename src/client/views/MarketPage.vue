@@ -25,7 +25,7 @@
 		</modal>
 
 		<div>
-			<h1>Wie viele Menschen waren einkaufen?</h1>
+			<h1>{{$t('general.popularityRequest')}}</h1>
 			<ul>
 				<li><input name="population" type="radio"> {{$t('userFeedback.empty')}}</li>
 				<li><input name="population" type="radio"> {{$t('userFeedback.low')}}</li>
