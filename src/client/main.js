@@ -10,7 +10,7 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
-const app = new Vue({
+new Vue({
 	el: '#app',
 	store,
 	router,

@@ -1,11 +1,15 @@
 <template>
 	<div>
-		index page
+		product
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'IndexPage'
+		name: 'ProductItem'
 	};
 </script>
+
+<style scoped>
+
+</style>
