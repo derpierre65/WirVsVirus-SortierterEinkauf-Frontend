@@ -4,13 +4,21 @@ const search = {
 		selected: []
 	},
 	mutations: {
-		setSelected(state, productIds) {
-			state.selected = productIds;
+		setSelected(state, productId) {
+			state.selected.push(productId);
+		},
+		removeSelected(state, index) {
+			state.selected.splice(index, 1);
 		}
 	},
 	actions: {
-		setSelected({commit}, productIds) {
-			commit('setSelected', productIds);
+		setSelected({ commit, state }, productId) {
+			if (state.selected.includes(productId)) {
+				commit('removeSelected', state.selected.indexOf(productId));
+			}
+			else {
+				commit('setSelected', productId);
+			}
 		}
 	}
 };
