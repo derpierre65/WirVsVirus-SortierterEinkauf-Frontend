@@ -27,9 +27,9 @@
 		<div>
 			<h1>{{$t('general.popularityRequest')}}</h1>
 			<ul>
-				<li><input name="population" type="radio"> {{$t('userFeedback.empty')}}</li>
-				<li><input name="population" type="radio"> {{$t('userFeedback.low')}}</li>
-				<li><input name="population" type="radio"> {{$t('userFeedback.high')}}</li>
+				<li><label><input name="population" type="radio"> {{$t('userFeedback.empty')}}</label></li>
+				<li><label><input name="population" type="radio"> {{$t('userFeedback.low')}}</label></li>
+				<li><label><input name="population" type="radio"> {{$t('userFeedback.high')}}</label></li>
 			</ul>
 			<button @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
 		</div>
