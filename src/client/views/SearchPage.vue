@@ -14,7 +14,7 @@
 		</div>
 
 		<template v-if="searched">
-			<search-result v-for="i in 20" />
+			<search-result v-for="i in 20" :key="i" />
 		</template>
 	</div>
 </template>
