@@ -1,3 +1,7 @@
 {
-	"helloWorld": "hello world :P"
+	"geolocation": {
+		"notAvailable": "Ihr Browser unterstützt keine Geolocation.",
+		"accept": "Bitte bestätigen Sie Ihre aktuelle Position.",
+		"request": "Position abfragen"
+	}
 }
