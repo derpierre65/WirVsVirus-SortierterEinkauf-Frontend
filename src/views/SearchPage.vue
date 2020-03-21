@@ -1,7 +1,7 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 	<div class="container" v-else>
-		<span class="location-box" v-if="hasLocation">
+		<span class="location-box" v-if="!hasLocation">
 			{{$t('geolocation.accept')}}
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
