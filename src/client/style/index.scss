@@ -12,6 +12,13 @@
   margin: auto;
 }
 
+.location-box {
+  background-color: #336699;
+  height: 80px;
+  color: white;
+  text-align: center;
+}
+
 .big-heading {
   font-family: Tahoma;
   font-weight: bold;
@@ -34,18 +41,21 @@
   color: #CC00FF;
 }
 
-
+.button-box {
+  text-align: center;
+  margin-top: 50px;
+}
 
 .button {
   display: inline-block;
   border-radius: 4px;
-  background-color: #f4511e;
+  background-color: #336699;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 28px;
-  padding: 20px;
-  width: 200px;
+  padding: 10px;
+  width: 150px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -54,13 +64,13 @@
 .button:hover {
   display: inline-block;
   border-radius: 4px;
-  background-color: #f40399;
-  border: none;
-  color: #FFFFFF;
+  background-color: white;
+  border: solid 2px #336699;
+  color: #336699;
   text-align: center;
   font-size: 28px;
-  padding: 20px;
-  width: 200px;
+  padding: 10px;
+  width: 150px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
