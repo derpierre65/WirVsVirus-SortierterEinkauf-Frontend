@@ -5,7 +5,7 @@
 	"author": "derpierre65 <git@derpierre65.de>",
 	"private": true,
 	"scripts": {
-		"build": "cross-env NODE_ENV=production webpack --progress --hide-modules && tsc",
+		"build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
 		"dev": "webpack-dev-server"
 	},
 	"dependencies": {
