@@ -30,7 +30,7 @@ let plugins = [
 		__APP_NAME__: JSON.stringify(appName)
 	}),
 	new MiniCssExtractPlugin({
-		filename: 'css/[name].css'
+		filename: 'assets/css/[name].css'
 	})
 ];
 
@@ -67,8 +67,8 @@ let config = {
 		[appName]: ['babel-polyfill', path.resolve(root, 'src/client/main.js'), path.resolve(root, 'src/client/style/index.scss')]
 	},
 	output: {
-		publicPath: '/',
-		path: path.resolve(root, 'dist/client'),
+		publicPath: '/app/',
+		path: path.resolve(root, 'dist'),
 		filename: 'assets/js/[name].min.js?v=[hash:8]'
 	},
 	module: {
