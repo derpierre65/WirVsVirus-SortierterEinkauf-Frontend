@@ -25,7 +25,7 @@
 
 			<search-result v-for="result of results" :key="result.id" :result="result" />
 
-			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
+			<infinite-loading type="search" @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
 	</div>
 </template>

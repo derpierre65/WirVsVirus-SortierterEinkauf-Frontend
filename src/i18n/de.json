@@ -75,7 +75,8 @@
 		"userFeedback": "Popularität",
 		"amountOfPeople": "Besucherzähler",
 		"averagePresenceTime": "Durchschnittliche Aufenhaltsdauer",
-		"recorded_at": "Eintrag vom"
+		"recorded_at": "Eintrag vom",
+		"popularityRequest": "Wie viele Menschen waren einkaufen?"
 	},
 	"userFeedback": {
 		"quantityEmpty": "Leer",
@@ -100,15 +101,10 @@
 	"search": {
 		"greeting": "Herzlich Wilkommen!",
 		"introPhrase": "Nach welchen Produkten suchen Sie?",
-		"results": "Suchergebnisse"
-	},
-	"general": {
-		"popularityRequest": "Wie viele Menschen waren einkaufen?",
-		"searchResults": "Suchergebnisse"
-	},
-	"undefined": {
-		"noResults": "Es wurden keine Einträge gefunden."
-		"popularityRequest": "Wie viele Menschen waren einkaufen?"
+		"results": "Suchergebnisse",
+		"noResults": "Es wurden keine Einträge gefunden.",
+		"searchResults": "Suchergebnisse",
+		"noMore": "Keine weiteren Ergbnisse gefunden."
 	},
 	"language": {
 		"change": "Sprache wechseln"
