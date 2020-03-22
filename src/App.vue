@@ -62,6 +62,7 @@
 		},
 		created() {
 			this.updateDarkMode();
+			document.title = this.$i18n.i18next.t('title');
 		},
 		methods: {
 			toggleDarkMode() {

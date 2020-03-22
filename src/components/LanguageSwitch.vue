@@ -25,7 +25,9 @@
 		},
 		methods: {
 			doChangeLanguage(newLanguage) {
-				this.$i18n.i18next.changeLanguage(newLanguage);
+				this.$i18n.i18next.changeLanguage(newLanguage, () => {
+					document.title = this.$i18n.i18next.t('title');
+				});
 				this.changeLanguage = false;
 			},
 			openLanguageChange() {
