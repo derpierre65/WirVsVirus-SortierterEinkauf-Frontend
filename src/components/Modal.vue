@@ -6,7 +6,7 @@
 					<div class="modal-header">
 						<h3>{{$t(title)}}</h3>
 					</div>
-					<div class="modal-body">
+					<div class="modal-body choice">
 						<slot />
 					</div>
 					<div class="modal-footer">
