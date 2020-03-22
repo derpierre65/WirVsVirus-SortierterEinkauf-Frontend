@@ -73,10 +73,18 @@ body {
 }
 
 .menuBackground {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	background-color: var(--base-color);
 	height: 80px;
 	color: var(--base-font-color);
 	text-align: center;
+
+	ul {
+		@include inlineList;
+	}
 }
 
 .location-box {
@@ -121,17 +129,10 @@ body {
 		color: var(--base-font-color);
 	}
 
-.fa32 {
-	float: right;
-	margin-top: 22px;
-	margin-right: 20px;
-	font-size: 35px;
-}
+	.fa-star {
+		position:absolute;
+		right: 0;
 
-.fa-star {
-	margin-top: 13px;
-	padding: 10px;
-	font-size: 20px;
 		&.starred {
 			color: orange !important;
 		}
