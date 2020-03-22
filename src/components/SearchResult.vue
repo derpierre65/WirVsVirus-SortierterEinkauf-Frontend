@@ -5,7 +5,7 @@
 		<br />
 		<address>{{result.address}}</address>
 		<br />
-		<i class="fa" :class="{'fa-user': Math.random() < 0.5, 'fa-users': Math.random() > 0.5}"></i>
+		Derzeitige Besucher <i class="fa" :class="{'fa-user green': Math.random() < 0.5, 'fa-users red': Math.random() > 0.5}"></i>
 	</div>
 </template>
 
