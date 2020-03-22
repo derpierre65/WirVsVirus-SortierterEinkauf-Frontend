@@ -4,7 +4,7 @@
 			<div class="modal-wrapper">
 				<div class="modal-container">
 					<div class="modal-header">
-						<h3 v-html="title"></h3>
+						<h3>{{$t(title)}}</h3>
 					</div>
 					<div class="modal-body">
 						<slot />

@@ -1,6 +1,7 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 	<div v-else>
+		{{test}}
 		<span class="location-box" v-if="!hasLocation">
 			{{$t('geolocation.accept')}}
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
@@ -20,7 +21,7 @@
 		</div>
 
 		<template v-if="searched">
-			<h2><u>{{$t('general.searchResults')}}</u></h2>
+			<h2><u>{{$t('search.results')}}</u></h2>
 
 			<search-result v-for="result of results" :key="result.id" :result="result" />
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
@@ -42,6 +43,7 @@
 				results: [],
 				searchIdentifier: Date.now(),
 				searchPage: 0,
+				test: [],
 				searchMaxPages: 0,
 				searched: false
 			};
@@ -128,6 +130,11 @@
 				if (!this.selectedIds.length) {
 					return false;
 				}
+
+				this.test = [];
+				this.axios.get('http://81.169.133.126:8085/api/locations/details?location_ids=[1]').then((response) => {
+					this.test.push(response.data);
+				});
 
 				let data = {
 					location: this.location,
