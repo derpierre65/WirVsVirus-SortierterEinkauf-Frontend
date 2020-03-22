@@ -37,7 +37,9 @@
 				<li><label><input name="population" type="radio"> {{$t('userFeedback.high')}}</label></li>
 			</ul>
 
-			<button class="button" @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
+			<div class="button-box">
+				<button class="button" @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
+			</div>
 		</div>
 	</div>
 </template>

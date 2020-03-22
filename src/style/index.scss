@@ -223,10 +223,14 @@ body {
 }
 
 .choice {
-	input[type=radio] {
-		-webkit-appearance: none;
-		background-color: #FF00CC;
-		width: 100px;
-		height: 100px;
+	input {
+		margin-left: 10px;
+		width: 30px;
+		height: 30px;
+	}
+
+	input, label {
+		vertical-align: middle;
+		margin: 10px;
 	}
 }
