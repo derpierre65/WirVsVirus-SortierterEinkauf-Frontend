@@ -1,46 +1,40 @@
 <template>
 	<div>
-		<div class="row market-info">
-			<div id="market-info" class="col-md-6">
-				<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
-				{{$t('market.address')}}: {{market.address}}<br>
+		<div  id="market-info-box" class="row">
+			<div class="col-md-5">
+				<div class="market-info">
+					<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
+					{{$t('market.address')}}: {{market.address}}<br>
+				</div>
+				<div class="market-detail">
+					{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
+					{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
+					{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
+					{{$t('market.recorded_at')}}: {{market.recorded_at|date}}<br>
+				</div>
 			</div>
-			<div id="market-detail" class="col-md-6">
-				{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
-				{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
-				{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
-				{{$t('market.recorded_at')}}: {{market.recorded_at|date}}<br>
+
+			<!-- Does not work! <div id="vline" class="col-md-2"></div> -->
+
+			<div id="vline" class="col-md-1"></div>
+
+			<div class="col-md-6 feedback-popularity">
+				<h1>{{$t('market.popularityRequest')}}</h1>
+
+				<ul class="choice">
+					<li><label><input name="population" type="radio"> {{$t('userFeedback.empty')}}</label></li>
+					<li><label><input name="population" type="radio"> {{$t('userFeedback.low')}}</label></li>
+					<li><label><input name="population" type="radio"> {{$t('userFeedback.high')}}</label></li>
+				</ul>
+
+				<div id="market-feedback" class="button-box">
+					<button class="button" @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
+				</div>
 			</div>
 		</div>
-
 
 		<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"
 		              @click.native="productFeedback(product)" />
-
-		<modal v-if="modalFeedback" v-model="modalFeedback" :buttons="modalButtons" :title="products[productFeedbackId].product_name">
-			<ul>
-                <li><label><input name="quantityCheck" type="radio" value="0" v-model.number="quantityCheck">
-                    {{$t('userFeedback.quantityEmpty')}}</label></li>
-				<li><label><input name="quantityCheck" type="radio" value="1" v-model.number="quantityCheck">
-                    {{$t('userFeedback.quantityLow')}}</label></li>
-				<li><label><input name="quantityCheck" type="radio" value="2" v-model.number="quantityCheck">
-                    {{$t('userFeedback.quantityHigh')}}</label></li>
-			</ul>
-		</modal>
-
-		<div class="feedback-popularity">
-			<h1>{{$t('market.popularityRequest')}}</h1>
-
-			<ul class="choice">
-				<li><label><input name="population" type="radio"> {{$t('userFeedback.empty')}}</label></li>
-				<li><label><input name="population" type="radio"> {{$t('userFeedback.low')}}</label></li>
-				<li><label><input name="population" type="radio"> {{$t('userFeedback.high')}}</label></li>
-			</ul>
-
-			<div id="market-feedback" class="button-box">
-				<button class="button" @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
-			</div>
-		</div>
 	</div>
 </template>
 
