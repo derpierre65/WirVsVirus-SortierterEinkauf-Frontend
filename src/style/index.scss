@@ -199,6 +199,12 @@ body {
 .button-box {
 	text-align: center;
 	margin-top: 40px;
+
+	&#market-feedback {
+		@include screen-lg {
+			text-align: left;
+		}
+	}
 }
 
 .button {
