@@ -87,10 +87,6 @@ body {
 	}
 }
 
-.location-box {
-
-}
-
 .product-item {
 	background-color: var(--base-color);
 	border: 2px solid var(--base-color);
@@ -133,35 +129,34 @@ body {
 		position:absolute;
 		right: 0;
 
-			&.starred {
-				color: orange !important;
-			}
+		&.starred {
+			color: orange !important;
 		}
 	}
+}
 
-	.button-box {
-		text-align: center;
-		margin-top: 40px;
-	}
+.button-box {
+	text-align: center;
+	margin-top: 40px;
+}
 
-	.button {
-		display: inline-block;
-		border-radius: 4px;
-		background-color: var(--base-color);
-		border: 2px solid var(--base-color);
-		color: var(--base-font-color);
-		text-align: center;
-		font-size: 20px;
-		padding: 10px;
-		transition: all 0.5s;
-		cursor: pointer;
-		margin: 5px;
+.button {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: var(--base-color);
+	border: 2px solid var(--base-color);
+	color: var(--base-font-color);
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
 
-		&:hover {
-			background-color: var(--base-font-color);
-			border: solid 2px var(--base-color);
-			color: var(--base-color);
-			transition: background-color 0.5s;
-		}
+	&:hover {
+		background-color: var(--base-font-color);
+		border: solid 2px var(--base-color);
+		color: var(--base-color);
+		transition: background-color 0.5s;
 	}
 }
