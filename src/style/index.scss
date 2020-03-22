@@ -70,6 +70,12 @@ body {
 	background-color: var(--background-color);
 }
 
+body:not(.dark) {
+	background-image: url(/images/bg_paper_light.jpg);
+	padding: 15px;
+	background-attachment: fixed;
+}
+
 .container {
 	margin-top: 20px;
 }

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div  id="market-info-box" class="row">
+		<div id="market-info-box" class="row">
 			<div class="col-md-5">
 				<div class="market-info">
 					<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
@@ -30,7 +30,11 @@
 			</div>
 		</div>
 
-		<product-item v-for="(id, name) in products" :name="name" :key="id" @click.native="productFeedback(id)" />
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4" v-for="(name, id) in products">
+				<product-item class="pointer" :name="name" :key="id" @click.native="productFeedback(id)" />
+			</div>
+		</div>
 
 		<modal v-if="modalFeedback" v-model="modalFeedback" :buttons="modalButtons" :title="products[productFeedbackId]">
 			<ul>
@@ -79,7 +83,7 @@
 					types: 'supermarkt',
 					ltdtude: '3',
 					lngtude: '3',
-					recorded_at: '2020-02-02 13:33:37',
+					recorded_at: '2020-02-02 13:37:37',
 					userFeedback: 2,
 					amountOfPeople: 44,
 					sizeOfMarket: 52,
