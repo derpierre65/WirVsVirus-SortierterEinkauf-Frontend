@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="row market-info">
-			<div class="col-md-6">
+			<div id="market-info" class="col-md-6">
 				<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
 				{{$t('market.address')}}: {{market.address}}<br>
 			</div>
