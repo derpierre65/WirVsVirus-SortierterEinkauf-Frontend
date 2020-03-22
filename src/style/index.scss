@@ -264,7 +264,7 @@ button {
 .fa-spinner {
 	animation: caSpinner .6s linear infinite;
 	border: 2px solid rgb(204, 204, 204);
-	border-top-color: purple;
+	border-top-color: var(--base-color);
 	border-radius: 50%;
 	vertical-align: middle;
 
