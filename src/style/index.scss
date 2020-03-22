@@ -125,19 +125,13 @@ body {
 	.result-favorite {
 		position: absolute;
 		right: 5px;
-		top: 5px;
-		color: var(--base-font-color);
-	}
-
-	.fa-star {
-		position: absolute;
-		right: 5px;
 		top: 50%;
 		transform: translateY(-50%);
 
 		&.starred {
 			color: orange !important;
 		}
+		color: var(--base-font-color);
 	}
 }
 
