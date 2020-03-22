@@ -1,6 +1,7 @@
 <template>
 	<div class="product-item">
-		{{product}}
+		<img alt="Image" />
+		{{product.product_name}}
 	</div>
 </template>
 

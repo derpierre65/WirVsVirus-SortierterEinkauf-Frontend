@@ -6,7 +6,7 @@
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
 		<div v-else>
-			<h1>{{$t('landingPage.greeting')}}</h1><br>
+			<h1 class="text-center">{{$t('landingPage.greeting')}}</h1><br>
 			<h2>{{$t('landingPage.introPhrase')}}</h2><br>
 
 			<div class="row product-selection">

@@ -14,7 +14,6 @@
 h1 {
 	@include fontTitle;
 	@include fontBold;
-	text-align: center;
 	margin-top: 80px;
 }
 
@@ -25,6 +24,10 @@ h2 {
 
 h3 {
 	@include fontHeadline;
+}
+
+.text-center {
+	text-align: center;
 }
 
 .layoutBoundary {
@@ -96,20 +99,26 @@ body {
 }
 
 .result {
-	border: 1.5px solid var(--base-color);
+	background: var(--base-color);
+	color: var(--base-font-color);
 	margin-top: 15px;
 	padding: 10px;
 	position: relative;
 
-	& a {
-		color: var(--text-color);
+	a {
+		color: var(--base-font-color);
 		@include fontBold
 	}
 
-	& address {
+	address {
 		margin-top: 10px;
 	}
-}
+
+	.result-favorite {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		color: var(--base-font-color);
 
 .fa32 {
 	float: right;
@@ -122,6 +131,10 @@ body {
 	margin-top: 13px;
 	padding: 10px;
 	font-size: 20px;
+		&.starred {
+			color: orange !important;
+		}
+	}
 }
 
 .button-box {
