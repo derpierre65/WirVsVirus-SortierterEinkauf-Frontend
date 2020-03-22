@@ -20,11 +20,9 @@
 		</div>
 
 		<template v-if="searched">
-
 			<h2><u>{{$t('general.searchResults')}}</u></h2>
 
 			<search-result v-for="result of results" :key="result.id" :result="result" />
-
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
 	</div>

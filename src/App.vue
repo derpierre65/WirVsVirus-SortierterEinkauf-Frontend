@@ -48,7 +48,7 @@
 		data() {
 			let darkMode = false;
 			if (window.localStorage) {
-				darkMode = (window.localStorage.getItem('darkMode') || '1') === '1';
+				darkMode = (window.localStorage.getItem('darkMode') || '0') === '1';
 			}
 
 			return {

@@ -2,7 +2,7 @@
 	<div>
 		<search-result v-for="entry in entries" :result="entry" :key="entry.id" />
 
-		<infinite-loading @infinite="handler" />
+		<infinite-loading @infinite="handler" spinner="waveDots" />
 	</div>
 </template>
 
