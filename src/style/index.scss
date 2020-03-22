@@ -9,6 +9,8 @@
 @import 'layout/grid';
 @import 'layout/modal';
 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 h1 {
 	@include fontTitle;
 }
@@ -42,6 +44,8 @@ h3 {
 	--text-color: var(--base-color);
 	--background-color: #FAFAFA;
 	--modal-border: #DEE2E6;
+	font-family: 'Roboto', sans-serif;
+
 }
 
 .dark {
