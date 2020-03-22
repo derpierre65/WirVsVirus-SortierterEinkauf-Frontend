@@ -28,14 +28,16 @@
 			</ul>
 		</modal>
 
-		<div>
+		<div class="feedback-popularity">
 			<h1>{{$t('general.popularityRequest')}}</h1>
-			<ul>
+
+			<ul class="choice">
 				<li><label><input name="population" type="radio"> {{$t('userFeedback.empty')}}</label></li>
 				<li><label><input name="population" type="radio"> {{$t('userFeedback.low')}}</label></li>
 				<li><label><input name="population" type="radio"> {{$t('userFeedback.high')}}</label></li>
 			</ul>
-			<button @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
+
+			<button class="button" @click="submitStoreFeedback()">{{$t('button.submit')}}</button>
 		</div>
 	</div>
 </template>
