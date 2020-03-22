@@ -75,6 +75,14 @@ body {
 	margin-top: 20px;
 }
 
+.pageContainer {
+	padding-bottom: 120px;
+}
+
+.infinite-loading-container {
+	margin-top: 20px;
+}
+
 .menuBackground {
 	position: fixed;
 	bottom: 0;
@@ -238,4 +246,68 @@ body {
 		vertical-align: middle;
 		margin: 6px;
 	}
+}
+
+// spinner animation
+.fa-spinner {
+	animation: caSpinner .6s linear infinite;
+	border: 2px solid rgb(204, 204, 204);
+	border-top-color: purple;
+	border-radius: 50%;
+	vertical-align: middle;
+
+	&::before {
+		display: none;
+	}
+}
+
+@-webkit-keyframes caSpinner {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes caSpinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.loadingSpinner {
+	background-color: var(--background-color);
+	border: 1px solid var(--modal-border);
+	color: var(--text-color);
+	box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .2);
+	left: 50%;
+	opacity: 0;
+	padding: 10px;
+	position: fixed;
+	text-align: center;
+	top: 200px;
+	transform: translateX(-50%);
+	transition: visibility 0s linear 0.12s, opacity 0.12s linear;
+	visibility: hidden;
+	z-index: 401;
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+
+		transition-delay: 0s;
+	}
+
+	> span:not(.fa) {
+		display: block;
+		margin-top: 5px;
+	}
+}
+
+.pageBackdrop {
+	background-color: rgba(0, 0, 0, .4);
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 395;
 }

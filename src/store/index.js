@@ -10,7 +10,8 @@ export default new Vuex.Store({
 		location: {
 			longitude: null,
 			latitude: null
-		}
+		},
+		loading: false
 	},
 	modules: { search, product },
 	strict: process.env.NODE_ENV === 'development',
@@ -18,9 +19,15 @@ export default new Vuex.Store({
 		updateLocation(state, { longitude, latitude }) {
 			state.location.longitude = longitude;
 			state.location.latitude = latitude;
+		},
+		setLoading(state, newState) {
+			state.loading = newState;
 		}
 	},
 	actions: {
+		setLoading({ commit }, newState) {
+			commit('setLoading', newState);
+		},
 		setGeolocation({ commit }, location) {
 			commit('updateLocation', location);
 		}

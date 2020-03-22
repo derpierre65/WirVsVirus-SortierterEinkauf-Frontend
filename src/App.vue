@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="layoutBoundary">
+		<div class="pageContainer layoutBoundary">
 			<router-view class="container" />
 		</div>
 		<div class="menuBackground">
@@ -37,14 +37,17 @@
 				</ul>
 			</div>
 		</div>
+
+		<loading-spinner v-if="$store.state.loading" />
 	</div>
 </template>
 
 <script>
 	import LocaleChanger from './components/LanguageSwitch';
+	import LoadingSpinner from './components/LoadingSpinner';
 
 	export default {
-		components: { LocaleChanger },
+		components: { LoadingSpinner, LocaleChanger },
 		data() {
 			let darkMode = false;
 			if (window.localStorage) {

@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<search-result v-for="entry in entries" :result="entry" :key="entry.id" />
-
-		<infinite-loading type="search" @infinite="handler" spinner="waveDots" />
+		<infinite-loading type="favoriteMarkets" @infinite="handler" spinner="waveDots" />
 	</div>
 </template>
 

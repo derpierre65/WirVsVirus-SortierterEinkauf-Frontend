@@ -1,7 +1,6 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 	<div v-else>
-		{{test}}
 		<span class="location-box" v-if="!hasLocation">
 			{{$t('geolocation.accept')}}
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
@@ -10,8 +9,8 @@
 			<h1 class="text-center">{{$t('search.introPhrase')}}</h1><br>
 
 			<div class="row product-selection">
-				<div class="col-xs-12 col-sm-6 col-md-4" v-for="product in products" :key="product.id">
-					<product-item :product="product" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
+				<div class="col-xs-12 col-sm-6 col-md-4" v-for="(productName, productId) in products" :key="productId">
+					<product-item :name="productName" @click.native="productClick(productId)" :class="{selected: selectedIds.includes(productId)}" />
 				</div>
 			</div>
 
@@ -42,9 +41,9 @@
 			return {
 				allowGeolocation: typeof navigator.geolocation !== 'undefined',
 				results: [],
+				resultIds: [],
 				searchIdentifier: Date.now(),
 				searchPage: 0,
-				test: [],
 				searchMaxPages: 0,
 				searched: false
 			};
@@ -62,68 +61,32 @@
 			...mapGetters(['hasLocation'])
 		},
 		methods: {
-			productClick(product) {
-				this.$store.dispatch('search/setSelected', product.id);
+			productClick(productId) {
+				this.$store.dispatch('search/setSelected', productId);
 			},
 			nextSearchPage(state) {
-				// TODO replace with backend request
-				// TODO move to another library - required later in favorite-market
-				(new Promise((resolve) => {
-					//<editor-fold desc="remove">
-					let data = [];
-					let result = {
-						id: 1,
-						name: 'name',
-						address: 'Babelsberger Straße 16, Potsdam',
-						distance: 500,
-						civilStatus: 1,
-						products: [
-							{
-								1: {
-									'status': 0,
-									'lastUpdate': 1584790887
-								}
-							},
-							{
-								2: {
-									'status': 0,
-									'lastUpdate': 1584790887
-								}
-							},
-							{
-								4: {
-									'status': 1,
-									'lastUpdate': 1584790887
-								}
-							},
-							{
-								5: {
-									'status': 2,
-									'lastUpdate': 1584790887
-								}
-							}
-						]
-					};
+				if (this.searchMaxPages === this.searchPage) {
+					return state.complete();
+				}
 
-					for (let i = 0; i < 20; i++) {
-						data.push(Object.assign({}, result, { id: Date.now() + i }));
-					}
-					//</editor-fold>
+				let locationIds = this.resultIds.slice(10 * this.searchPage, 10 + 10 * this.searchPage);
+				if (locationIds.length === 0) {
+					return state.complete();
+				}
 
-					setTimeout(() => resolve({ data }), 200);
-				})).then((response) => {
+				this.axios.get('/locations/details?location_ids=' + JSON.stringify(locationIds), { params: { location_ids: locationIds } }).then((response) => {
 					this.searchPage++;
-					this.searchMaxPages = 1;
-					this.results.push(...response.data);
+					let results = [];
+					for (let key in response.data) {
+						if (response.data.hasOwnProperty(key)) {
+							results.push(response.data[key]);
+						}
+					}
 
-					if (response.data.length === 0) {
-						state.complete();
-					}
-					else {
-						state.loaded();
-					}
+					this.results.push(...results);
+					state.loaded();
 				}).catch((err) => {
-					console.log(err);
+					console.log(123, err);
 					state.error();
 				});
 			},
@@ -132,20 +95,22 @@
 					return false;
 				}
 
-				this.test = [];
-				this.axios.get('http://81.169.133.126:8085/api/locations/details?location_ids=[1]').then((response) => {
-					this.test.push(response.data);
-				});
-
-				let data = {
-					location: this.location,
+				this.axios.post('/search', {
+					lat: this.location.latitude,
+					lon: this.location.longitude,
+					radius: 600,
 					products: this.selectedIds
-				};
-
-				this.searchPage = 0;
-				this.searchIdentifier = Date.now();
-				this.results = [];
-				this.searched = true;
+				}).then((response) => {
+					this.resultIds = response.data;
+					this.searchMaxPages = this.resultIds / 10;
+					this.results = [];
+					this.searchPage = 0;
+					this.searchIdentifier = Date.now();
+					this.searched = true;
+				}).catch((err) => {
+					console.log('error', err);
+					// TODO error
+				});
 			},
 			getLocation() {
 				//TODO: figure out about IE
@@ -153,7 +118,7 @@
 					navigator.geolocation.getCurrentPosition(({ coords }) => {
 							this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
 						},
-						({ errors }) => { console.log('Request failed')}
+						({ errors }) => { console.log('Request failed');}
 					);
 				}
 			}

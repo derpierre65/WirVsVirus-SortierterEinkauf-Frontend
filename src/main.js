@@ -9,6 +9,10 @@ import router from './router';
 import './filter';
 
 axios.defaults.baseURL = 'https://sortierteseinkaufen.de/api/';
+axios.defaults.headers.common = {
+	...axios.defaults.headers.common,
+	'Access-Control-Allow-Origin': '*',
+};
 
 Vue.use(VueAxios, axios);
 Vue.use(InfiniteLoading, {

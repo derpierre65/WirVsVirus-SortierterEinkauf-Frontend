@@ -102,9 +102,13 @@
 		"greeting": "Herzlich Wilkommen!",
 		"introPhrase": "Nach welchen Produkten suchen Sie?",
 		"results": "Suchergebnisse",
-		"noResults": "Es wurden keine Einträge gefunden.",
+		"noResults": "Es wurden keine Suchergebnisse gefunden.",
 		"searchResults": "Suchergebnisse",
-		"noMore": "Keine weiteren Ergbnisse gefunden."
+		"noMore": "Keine weiteren Suchergebnisse gefunden."
+	},
+	"favoriteMarkets": {
+		"noResults": "Es wurden keine Favoriten gefunden.",
+		"noMore": "Keine weiteren Favoriten gefunden."
 	},
 	"language": {
 		"change": "Sprache wechseln"
