@@ -6,7 +6,7 @@
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
 		<div v-else>
-			<h1 class="text-center">{{$t('landingPage.introPhrase')}}</h1><br>
+			<h1 class="text-center">{{$t('search.introPhrase')}}</h1><br>
 
 			<div class="row product-selection">
 				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
@@ -21,7 +21,7 @@
 
 		<template v-if="searched">
 
-			<h2>Suchergebnisse</h2>
+			<h2><u>{{$t('general.searchResults')}}</u></h2>
 
 			<search-result v-for="result of results" :key="result.id" :result="result" />
 

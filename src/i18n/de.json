@@ -37,11 +37,12 @@
 	"infoPage": {
 		"mainText": "Diese Website entstand im Rahmen des #WirvsVirus Hackathon vom 20.-22.03.2020."
 	},
-	"landingPage": {
+	"search": {
 		"greeting": "Herzlich Wilkommen!",
 		"introPhrase": "Nach welchen Produkten suchen Sie?"
 	},
 	"general": {
-		"popularityRequest": "Wie viele Menschen waren einkaufen?"
+		"popularityRequest": "Wie viele Menschen waren einkaufen?",
+		"searchResults": "Suchergebnisse"
 	}
 }
