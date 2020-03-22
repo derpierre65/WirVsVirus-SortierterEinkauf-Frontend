@@ -5,7 +5,7 @@
 		</div>
 		<div class="menuBackground">
 			<div class="layoutBoundary">
-				<ul>
+				<ul class="inlineList">
 					<li>
 						<a href="/">
 							<i class="fa fa32 fa-home"></i><!--<br />
