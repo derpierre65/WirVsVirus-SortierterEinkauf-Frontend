@@ -8,6 +8,7 @@
 <script>
 	import SearchResult from '../components/SearchResult';
 	import {mapState} from 'vuex';
+	import {itemsPerPage} from '../store/modules/search';
 
 	export default {
 		name: 'FavoriteMarketsPage',
@@ -23,53 +24,16 @@
 		},
 		methods: {
 			handler(state) {
-				// TODO replace with backend request
-				(new Promise((resolve) => {
-					//<editor-fold desc="remove">
-					let data = [];
-					let result = {
-						id: 1,
-						name: 'name',
-						address: 'Babelsberger Straße 16, Potsdam',
-						distance: 500,
-						civilStatus: 1,
-						products: [
-							{
-								1: {
-									'status': 0,
-									'lastUpdate': 1584790887
-								}
-							},
-							{
-								2: {
-									'status': 0,
-									'lastUpdate': 1584790887
-								}
-							},
-							{
-								4: {
-									'status': 1,
-									'lastUpdate': 1584790887
-								}
-							},
-							{
-								5: {
-									'status': 2,
-									'lastUpdate': 1584790887
-								}
-							}
-						]
-					};
+				if (this.starred.length / itemsPerPage === this.page) {
+					return state.complete();
+				}
 
-					let ids = this.starred.slice(this.page * 10, (this.page + 1) * 10);
+				let locationIds = this.starred.slice(itemsPerPage * this.page, itemsPerPage + itemsPerPage * this.page);
+				if (locationIds.length === 0) {
+					return state.complete();
+				}
 
-					for (let id of ids) {
-						data.push(Object.assign({}, result, { id }));
-					}
-					//</editor-fold>
-
-					setTimeout(() => resolve({ data }), 200);
-				})).then((response) => {
+				this.axios.post('/locations/details', locationIds).then((response) => {
 					this.page++;
 					this.entries.push(...response.data);
 

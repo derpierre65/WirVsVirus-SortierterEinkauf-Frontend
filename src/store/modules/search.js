@@ -1,3 +1,5 @@
+export const itemsPerPage = 10;
+
 const search = {
 	namespaced: true,
 	state: {

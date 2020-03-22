@@ -19,8 +19,10 @@
 			}
 		},
 		methods: {
-			openMarket() {
-				this.$router.push({ name: 'market', params: { id: this.result.id } });
+			openMarket(event) {
+				if (!event.target.classList.contains('result-favorite')) {
+					this.$router.push({ name: 'market', params: { id: this.result.id } });
+				}
 			},
 			star(id) {
 				this.$store.dispatch('search/star', id);

@@ -21,9 +21,7 @@
 
 		<template v-if="searched">
 			<h2><u>{{$t('search.results')}}</u></h2>
-
 			<search-result v-for="result of search.results" :key="result.id" :result="result" />
-
 			<infinite-loading type="search" @infinite="nextSearchPage" spinner="waveDots" :identifier="search.identifier" />
 		</template>
 
@@ -38,6 +36,7 @@
 	import ProductItem from '../components/ProductItem';
 	import {mapGetters, mapState} from 'vuex';
 	import Modal from '../components/Modal';
+	import {itemsPerPage} from '../store/modules/search';
 
 	export default {
 		name: 'SearchPage',
@@ -77,8 +76,7 @@
 				this.$store.dispatch('search/setSelected', productId);
 			},
 			nextSearchPage(state) {
-				let itemsPerPage = 10;
-				if (this.search.resultIds / itemsPerPage === this.search.page) {
+				if (this.search.resultIds.length / itemsPerPage === this.search.page) {
 					return state.complete();
 				}
 
@@ -89,14 +87,8 @@
 
 				this.axios.post('/locations/details', locationIds).then((response) => {
 					this.search.page++;
-					let results = [];
-					for (let key in response.data) {
-						if (response.data.hasOwnProperty(key)) {
-							results.push(response.data[key]);
-						}
-					}
+					this.search.results.push(...response.data);
 
-					this.search.results.push(...results);
 					this.searchSave().then(() => {
 						state.loaded();
 					});
