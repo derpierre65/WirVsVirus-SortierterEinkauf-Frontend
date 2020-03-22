@@ -1,17 +1,18 @@
 <template>
 	<div>
-		<div>
-			<div class="market-info">
+		<div class="row market-info">
+			<div class="col-md-6">
 				<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
 				{{$t('market.address')}}: {{market.address}}<br>
 			</div>
-			<div class="market-detail">
+			<div id="market-detail" class="col-md-6">
 				{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
 				{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
 				{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
 				{{$t('market.recorded_at')}}: {{market.recorded_at !== '' ? market.recorded_at : $t('statisticFeedback.noData')}}<br>
 			</div>
 		</div>
+
 
 		<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"
 		              @click.native="productFeedback(product)" />
