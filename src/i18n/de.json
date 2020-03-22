@@ -44,5 +44,8 @@
 	"general": {
 		"popularityRequest": "Wie viele Menschen waren einkaufen?",
 		"searchResults": "Suchergebnisse"
+	},
+	"undefined": {
+		"noResults": "Es wurden keine Einträge gefunden."
 	}
 }

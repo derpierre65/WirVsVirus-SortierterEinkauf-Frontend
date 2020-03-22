@@ -20,9 +20,11 @@
 		</div>
 
 		<template v-if="searched">
+
 			<h2><u>{{$t('general.searchResults')}}</u></h2>
 
 			<search-result v-for="result of results" :key="result.id" :result="result" />
+
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
 	</div>
@@ -140,10 +142,13 @@
 				this.searched = true;
 			},
 			getLocation() {
+				//TODO: figure out about IE
 				if (this.allowGeolocation && !this.hasLocation) {
 					navigator.geolocation.getCurrentPosition(({ coords }) => {
-						this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
-					});
+							this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
+						},
+						({ errors }) => { console.log('Request failed')}
+					);
 				}
 			}
 		}

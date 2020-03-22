@@ -44,5 +44,8 @@
 	"general": {
 		"popularityRequest": "How many other people where shopping in this store?",
 		"searchResults": "Searchresults"
+	},
+	"undefined": {
+		"noResults": "No results were found."
 	}
 }
