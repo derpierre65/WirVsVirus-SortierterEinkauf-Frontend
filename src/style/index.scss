@@ -171,7 +171,6 @@ body {
 }
 
 .market-info {
-	width: 100%;
 	margin-bottom: 40px;
 }
 
@@ -182,7 +181,6 @@ body {
 
 #market-detail {
 	text-align: right;
-	line-height: 180%;
 
 	@media screen and (max-width: 768px) {
 		text-align: left;

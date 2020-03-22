@@ -8,7 +8,7 @@ Vue.use(Router);
 
 let router = new Router({
 	mode: 'history',
-	base: '/app/',
+	base: process.env.NODE_ENV !== 'production' ? '/' : '/app/',
 	linkActiveClass: 'semiActive',
 	linkExactActiveClass: 'active',
 	routes: [
