@@ -221,3 +221,12 @@ body {
 		transition: background-color 0.5s;
 	}
 }
+
+.choice {
+	input[type=radio] {
+		-webkit-appearance: none;
+		background-color: #FF00CC;
+		width: 100px;
+		height: 100px;
+	}
+}
