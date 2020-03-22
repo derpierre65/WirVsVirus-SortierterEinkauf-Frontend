@@ -81,7 +81,7 @@
 					return state.complete();
 				}
 
-				this.axios.post('/locations/details', {location_ids: locationIds}).then((response) => {
+				this.axios.post('/locations/details', locationIds).then((response) => {
 					this.searchPage++;
 					let results = [];
 					for (let key in response.data) {
