@@ -30,6 +30,10 @@ h3 {
 	text-align: center;
 }
 
+.pointer {
+	cursor: pointer;
+}
+
 .layoutBoundary {
 	margin: 0 auto;
 
@@ -126,8 +130,10 @@ body {
 	}
 
 	.fa-star {
-		position:absolute;
-		right: 0;
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
 
 		&.starred {
 			color: orange !important;
