@@ -170,41 +170,43 @@ body {
 	}
 }
 
+#market-info-box {
+	margin: 15px 0 20px 10px;
+}
+
 .market-info {
-	margin-bottom: 40px;
+	margin-bottom: 25px;
+	line-height: 150%;
 }
 
-#market-info {
-	margin-top: 40px;
-	line-height: 50px;
+.market-detail {
+	line-height: 190%;
 }
 
-#market-detail {
-	text-align: right;
+#vline {
+	border-left: solid 1.5px var(--base-color);
+	height: 250px;
+	left: 4%;
+	margin-left: -1.5px;
 
-	@media screen and (max-width: 768px) {
-		text-align: left;
+	@include screen-sm-down {
+		display: none	!important;
 	}
 }
 
 .feedback-popularity {
-	margin-top: 40px;
-
 	.choice {
-		margin: 15px 0 15px 10px;
 		line-height: 180%;
+	}
+
+	@include screen-sm-down {
+		margin: 40px 0 20px 0;
 	}
 }
 
 .button-box {
 	text-align: center;
-	margin-top: 40px;
-
-	&#market-feedback {
-		@include screen-lg {
-			text-align: left;
-		}
-	}
+	margin-top: 20px;
 }
 
 .button {
@@ -229,8 +231,10 @@ body {
 }
 
 .choice {
+	margin-top: 15px;
+
+
 	input {
-		margin-left: 10px;
 		width: 30px;
 		height: 30px;
 	}
