@@ -1,9 +1,11 @@
 <template>
 	<div>
 		<div>
-			<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
-			<div class="market-detail">
+			<div class="market-info">
+				<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
 				{{$t('market.address')}}: {{market.address}}<br>
+			</div>
+			<div class="market-detail">
 				{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
 				{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
 				{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
