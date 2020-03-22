@@ -1,7 +1,7 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 	<div v-else>
-		<span class="location-box" v-if="!hasLocation">
+		<span class="location-box" v-if="hasLocation">
 			{{$t('geolocation.accept')}}
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</span>
@@ -21,6 +21,9 @@
 		</div>
 
 		<template v-if="searched">
+
+			<h2>Suchergebnisse</h2>
+
 			<search-result v-for="result of results" :key="result.id" :result="result" />
 
 			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
