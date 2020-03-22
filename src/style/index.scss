@@ -223,9 +223,9 @@ body {
 }
 
 .choice {
-	input {
-		color: greenyellow;
-		font-size: 80px;
+	input[type=radio] {
+		-webkit-appearance: none;
+		background-color: #FF00CC;
 		width: 100px;
 		height: 100px;
 	}
