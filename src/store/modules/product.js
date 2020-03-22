@@ -27,11 +27,6 @@ const product = {
 			});
 		}
 	},
-	getters: {
-		entriesArray(state) {
-			return Object.values(state.entries);
-		}
-	}
 };
 
 export default product;

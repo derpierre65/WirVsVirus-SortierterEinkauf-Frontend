@@ -5,11 +5,18 @@
 		<br />
 		<address>{{result.address}}</address>
 		<br />
-		Derzeitige Besucher <i class="fa" :class="{'fa-user green': Math.random() < 0.5, 'fa-users red': Math.random() > 0.5}"></i>
+		Derzeitige Besucher <i class="fa" :class="{'fa-user green': Math.random() < 0.5, 'fa-users red': Math.random() > 0.5}"></i><br />
+		<ul class="inlineList" style="margin-top: 5px">
+			<li v-for="i in selectedIds">
+				<span class="label"><i class="fa fa-check"></i> {{$t('product.' + products[i])}}</span>
+			</li>
+		</ul>
 	</div>
 </template>
 
 <script>
+	import {mapState} from 'vuex';
+
 	export default {
 		name: 'SearchResult',
 		props: {
@@ -17,6 +24,10 @@
 				type: Object,
 				required: true
 			}
+		},
+		computed: {
+			...mapState('search', { selectedIds: 'selected' }),
+			...mapState('product', {products: 'entries'}),
 		},
 		methods: {
 			openMarket(event) {

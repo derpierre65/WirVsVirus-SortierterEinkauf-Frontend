@@ -51,6 +51,7 @@ h3 {
 :root {
 	--base-color: rgb(51, 102, 153);
 	--base-font-color: #FFFFFF;
+	--label-background: rgb(72, 139, 206);
 	--text-color: var(--base-color);
 	--background-color: #FAFAFA;
 	--modal-border: #DEE2E6;
@@ -60,6 +61,7 @@ h3 {
 .dark {
 	--base-color: rgb(28, 51, 74);
 	--base-font-color: #D2D2D2;
+	--label-background: rgb(22, 34, 45);
 	--text-color: #D2D2D2;
 	--background-color: rgb(20, 31, 43);
 	--modal-border: rgb(53, 73, 94);
@@ -72,7 +74,6 @@ body {
 
 body:not(.dark) {
 	background-image: url(/images/bg_paper_light.jpg);
-	padding: 15px;
 	background-attachment: fixed;
 }
 
@@ -183,6 +184,13 @@ ul.inlineList {
 
 		color: var(--base-font-color);
 	}
+
+	.label {
+		background-color: var(--label-background);
+		border-radius: 5px;
+		margin: 2px;
+		padding: 3px 7px;
+	}
 }
 
 #market-info-box {
@@ -223,7 +231,7 @@ button {
 
 	&[disabled], &.disabled {
 		opacity: 0.5;
-		cursor: default;
+		cursor: not-allowed;
 	}
 
 	&:not([disabled]):not(.disabled) {

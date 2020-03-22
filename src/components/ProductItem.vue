@@ -10,7 +10,7 @@
 		props: {
 			name: {
 				required: true,
-				type: Object
+				type: String
 			}
 		}
 	};

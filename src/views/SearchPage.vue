@@ -67,7 +67,7 @@
 		},
 		computed: {
 			...mapState(['location']),
-			...mapGetters('product', { products: 'entriesArray' }),
+			...mapState('product', {products: 'entries'}),
 			...mapState('search', { selectedIds: 'selected', hasSavedSearch: 'saved', savedSearch: 'search' }),
 			...mapGetters(['hasLocation'])
 		},
@@ -113,6 +113,7 @@
 				}).then((response) => {
 					this.search.resultIds = response.data;
 					this.search.maxPages = this.search.resultIds / 10;
+					this.search.productIds = this.selectedIds.slice();
 					this.results = [];
 					this.search.page = 0;
 					this.search.identifier = Date.now();
