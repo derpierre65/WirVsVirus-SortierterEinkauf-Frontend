@@ -14,7 +14,6 @@
 h1 {
 	@include fontTitle;
 	@include fontBold;
-	text-align: center;
 	margin-top: 80px;
 }
 
@@ -25,6 +24,10 @@ h2 {
 
 h3 {
 	@include fontHeadline;
+}
+
+.text-center {
+	text-align: center;
 }
 
 .layoutBoundary {
@@ -101,7 +104,7 @@ body {
 .result {
 	background: var(--base-color);
 	color: var(--base-font-color);
-	margin-top: 10px;
+	margin-top: 15px;
 	padding: 10px;
 	position: relative;
 
@@ -124,12 +127,6 @@ body {
 			color: orange !important;
 		}
 	}
-}
-
-.fa {
-	margin-top: 13px;
-	padding: 10px;
-	font-size: 20px;
 }
 
 .button-box {
