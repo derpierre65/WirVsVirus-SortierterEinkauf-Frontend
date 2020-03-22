@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		<modal v-if="modalFeedback" v-model="modalFeedback" :buttons="modalButtons" :title="products[productFeedbackId]">
+		<modal v-if="modalFeedback" v-model="modalFeedback" :buttons="modalButtons" :title="'product.'+products[productFeedbackId]">
 			<ul>
                 <li>
 	                <label><input name="quantityCheck" type="radio" value="0" v-model.number="quantityCheck">
