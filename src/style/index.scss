@@ -86,6 +86,7 @@ body {
 	text-align: center;
 
 	.layoutBoundary {
+		height: 100%;
 		margin: 0 auto;
 
 		@include screen-xs {
