@@ -7,25 +7,25 @@
 			<ul>
 				<li>
 					<a href="/">
-						<i class="fa fa24 fa-home"></i>
+						<i class="fa fa32 fa-home"></i>
 						<span>{{$t('navigation.home')}}</span>
 					</a>
 				</li>
 				<router-link tag="li" :to="{name: 'index'}">
 					<a>
-						<i class="fa fa24 fa-search"></i>
+						<i class="fa fa32 fa-search"></i>
 					<span>{{$t('navigation.search')}}</span>
 					</a>
 				</router-link>
 				<router-link tag="li" :to="{name: 'favorite-markets'}">
 					<a>
-						<i class="fa fa24 fa-star"></i>
+						<i class="fa fa32 fa-star"></i>
 						<span>{{$t('navigation.favoriteMarkets')}}</span>
 					</a>
 				</router-link>
 				<li>
 					<a>
-						<i class="fa fa32" :class="{'fa-moon-o': !darkMode, 'fa-sun-o': darkMode}" @click="toggleDarkMode"></i>
+						<i class="fa fa32 pointer" :class="{'fa-moon-o': !darkMode, 'fa-sun-o': darkMode}" @click="toggleDarkMode"></i>
 					</a>
 				</li>
 				<li>
@@ -52,18 +52,18 @@
 			};
 		},
 		created() {
-			this.setDarkMode();
+			this.updateDarkMode();
 		},
 		methods: {
 			toggleDarkMode() {
 				this.darkMode = !this.darkMode;
-				this.setDarkMode();
+				this.updateDarkMode();
 
 				if (window.localStorage) {
 					window.localStorage.setItem('darkMode', this.darkMode ? '1' : '0');
 				}
 			},
-			setDarkMode() {
+			updateDarkMode() {
 				if (this.darkMode) {
 					document.body.classList.add('dark');
 				}

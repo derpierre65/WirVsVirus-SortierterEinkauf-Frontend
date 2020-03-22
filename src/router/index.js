@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import SearchPage from '../views/SearchPage';
-import InfoPage from '../views/InfoPage';
 import MarketPage from '../views/MarketPage';
 import FavoriteMarketsPage from '../views/FavoriteMarketsPage';
 
@@ -17,11 +16,6 @@ let router = new Router({
 			path: '/',
 			name: 'index',
 			component: SearchPage
-		},
-		{
-			path: '/info',
-			name: 'info',
-			component: InfoPage
 		},
 		{
 			path: '/market/:id',
