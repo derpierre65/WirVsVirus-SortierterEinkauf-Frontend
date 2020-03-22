@@ -15,16 +15,16 @@
 			</div>
 
 			<div class="button-box">
-				<button :disabled="!selectedIds.length" @click="search"><i class="fa fa-search"></i> {{$t('button.search')}}</button>
+				<button :disabled="!selectedIds.length" @click="searchStart"><i class="fa fa-search"></i> {{$t('button.search')}}</button>
 			</div>
 		</div>
 
 		<template v-if="searched">
 			<h2><u>{{$t('search.results')}}</u></h2>
 
-			<search-result v-for="result of results" :key="result.id" :result="result" />
+			<search-result v-for="result of search.results" :key="result.id" :result="result" />
 
-			<infinite-loading type="search" @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
+			<infinite-loading type="search" @infinite="nextSearchPage" spinner="waveDots" :identifier="search.identifier" />
 		</template>
 
 		<modal :title="$t('geolocation.error')" v-if="geolocationModal" v-model="geolocationModal">
@@ -47,24 +47,29 @@
 				allowGeolocation: typeof navigator.geolocation !== 'undefined',
 				geolocationError: null,
 				geolocationModal: false,
-				results: [],
-				resultIds: [],
-				searchIdentifier: Date.now(),
-				searchPage: 0,
-				searchMaxPages: 0,
-				searched: false
+				searched: false,
+				search: {
+					results: [],
+					resultIds: [],
+					identifier: Date.now(),
+					page: 0,
+					maxPages: 0
+				}
 			};
 		},
 		created() {
 			this.$store.dispatch('product/fetch').then(() => {
 				this.getLocation();
+				if (this.hasSavedSearch) {
+					this.search = this.savedSearch;
+					this.searched = true;
+				}
 			});
 		},
 		computed: {
 			...mapState(['location']),
-			// ...mapState('product', { products: 'entries' }),
 			...mapGetters('product', { products: 'entriesArray' }),
-			...mapState('search', { selectedIds: 'selected' }),
+			...mapState('search', { selectedIds: 'selected', hasSavedSearch: 'saved', savedSearch: 'search' }),
 			...mapGetters(['hasLocation'])
 		},
 		methods: {
@@ -72,17 +77,18 @@
 				this.$store.dispatch('search/setSelected', productId);
 			},
 			nextSearchPage(state) {
-				if (this.searchMaxPages === this.searchPage) {
+				let itemsPerPage = 10;
+				if (this.search.resultIds / itemsPerPage === this.search.page) {
 					return state.complete();
 				}
 
-				let locationIds = this.resultIds.slice(10 * this.searchPage, 10 + 10 * this.searchPage);
+				let locationIds = this.search.resultIds.slice(itemsPerPage * this.search.page, itemsPerPage + itemsPerPage * this.search.page);
 				if (locationIds.length === 0) {
 					return state.complete();
 				}
 
 				this.axios.post('/locations/details', locationIds).then((response) => {
-					this.searchPage++;
+					this.search.page++;
 					let results = [];
 					for (let key in response.data) {
 						if (response.data.hasOwnProperty(key)) {
@@ -90,13 +96,18 @@
 						}
 					}
 
-					this.results.push(...results);
-					state.loaded();
+					this.search.results.push(...results);
+					this.searchSave().then(() => {
+						state.loaded();
+					});
 				}).catch((err) => {
 					state.error();
 				});
 			},
-			search() {
+			searchSave() {
+				return this.$store.dispatch('search/save', this.search);
+			},
+			searchStart() {
 				if (!this.selectedIds.length) {
 					return false;
 				}
@@ -108,15 +119,16 @@
 					radius: 600,
 					products: this.selectedIds
 				}).then((response) => {
-					this.resultIds = response.data;
-					this.searchMaxPages = this.resultIds / 10;
+					this.search.resultIds = response.data;
+					this.search.maxPages = this.search.resultIds / 10;
 					this.results = [];
-					this.searchPage = 0;
-					this.searchIdentifier = Date.now();
+					this.search.page = 0;
+					this.search.identifier = Date.now();
 					this.searched = true;
+					this.searchSave();
 				}).catch((err) => {
+					// TODO error handling
 					console.log('error', err);
-					// TODO error
 				}).finally(() => {
 					this.$store.dispatch('setLoading', false);
 				});

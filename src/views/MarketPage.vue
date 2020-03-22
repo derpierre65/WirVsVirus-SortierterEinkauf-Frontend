@@ -1,12 +1,11 @@
 <template>
 	<div>
 		<div id="market-info-box" class="row">
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<div class="market-info">
 					<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
 					{{$t('market.address')}}: {{market.address}}<br>
 				</div>
-				<!--border-left: solid 1.5px var(&#45;&#45;base-color);-->
 				<div class="market-detail">
 					{{$t('market.userFeedback')}}: <span style="color: red">{{market.userFeedback}}</span><br>
 					{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
