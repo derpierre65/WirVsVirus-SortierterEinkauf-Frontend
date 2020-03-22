@@ -6,6 +6,7 @@
 					<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
 					{{$t('market.address')}}: {{market.address}}<br>
 				</div>
+				border-left: solid 1.5px var(--base-color);
 				<div class="market-detail">
 					{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
 					{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
@@ -13,10 +14,6 @@
 					{{$t('market.recorded_at')}}: {{market.recorded_at|date}}<br>
 				</div>
 			</div>
-
-			<!-- Does not work! <div id="vline" class="col-md-2"></div> -->
-
-			<div id="vline" class="col-md-1"></div>
 
 			<div class="col-md-6 feedback-popularity">
 				<h1>{{$t('market.popularityRequest')}}</h1>
@@ -33,8 +30,24 @@
 			</div>
 		</div>
 
-		<product-item v-for="product in products" :product="product" v-model="product.selected" :key="product.id"
-		              @click.native="productFeedback(product)" />
+		<product-item v-for="(id, name) in products" :name="name" :key="id" @click.native="productFeedback(id)" />
+
+		<modal v-if="modalFeedback" v-model="modalFeedback" :buttons="modalButtons" :title="products[productFeedbackId]">
+			<ul>
+                <li>
+	                <label><input name="quantityCheck" type="radio" value="0" v-model.number="quantityCheck">
+                    {{$t('userFeedback.quantityEmpty')}}</label>
+                </li>
+				<li>
+					<label><input name="quantityCheck" type="radio" value="1" v-model.number="quantityCheck">
+                    {{$t('userFeedback.quantityLow')}}</label>
+				</li>
+				<li>
+					<label><input name="quantityCheck" type="radio" value="2" v-model.number="quantityCheck">
+                    {{$t('userFeedback.quantityHigh')}}</label>
+				</li>
+			</ul>
+		</modal>
 	</div>
 </template>
 
@@ -94,8 +107,8 @@
 			}
 		},
 		methods: {
-			productFeedback(product) {
-				this.productFeedbackId = product.id;
+			productFeedback(id) {
+				this.productFeedbackId = id;
 				this.quantityCheck = null;
 				this.modalFeedback = true;
 			},

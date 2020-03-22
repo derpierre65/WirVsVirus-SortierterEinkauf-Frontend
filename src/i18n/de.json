@@ -65,6 +65,9 @@
 		"submit": "Absenden",
 		"search": "Suchen"
 	},
+	"infiniteLoading": {
+		"error": "Es ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut."
+	},
 	"geolocation": {
 		"notAvailable": "Ihr Browser unterstützt keine Geolocation.",
 		"accept": "Bitte bestätigen Sie Ihre aktuelle Position.",

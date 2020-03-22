@@ -1,14 +1,14 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 	<div v-else>
-		<div class="location-box text-center" v-if="!hasLocation">
+		<div class="text-center" v-if="!hasLocation">
 			<p>{{$t('geolocation.accept')}}</p>
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
 		</div>
 		<div v-else>
 			<h1 class="text-center">{{$t('search.introPhrase')}}</h1><br>
 
-			<div class="row product-selection">
+			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4" v-for="(productName, productId) in products" :key="productId">
 					<product-item :name="productName" @click.native="productClick(productId)" :class="{selected: selectedIds.includes(productId)}" />
 				</div>
@@ -81,7 +81,7 @@
 					return state.complete();
 				}
 
-				this.axios.get('/locations/details?location_ids=' + JSON.stringify(locationIds)).then((response) => {
+				this.axios.post('/locations/details', {location_ids: locationIds}).then((response) => {
 					this.searchPage++;
 					let results = [];
 					for (let key in response.data) {
