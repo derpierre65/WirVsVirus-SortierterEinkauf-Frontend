@@ -4,34 +4,38 @@
 			<router-view class="container" />
 		</div>
 		<div class="menuBackground">
-			<ul>
-				<li>
-					<a href="/">
-						<i class="fa fa32 fa-home"></i>
-						<span>{{$t('navigation.home')}}</span>
-					</a>
-				</li>
-				<router-link tag="li" :to="{name: 'index'}">
-					<a>
-						<i class="fa fa32 fa-search"></i>
-					<span>{{$t('navigation.search')}}</span>
-					</a>
-				</router-link>
-				<router-link tag="li" :to="{name: 'favorite-markets'}">
-					<a>
-						<i class="fa fa32 fa-star"></i>
-						<span>{{$t('navigation.favoriteMarkets')}}</span>
-					</a>
-				</router-link>
-				<li>
-					<a>
-						<i class="fa fa32 pointer" :class="{'fa-moon-o': !darkMode, 'fa-sun-o': darkMode}" @click="toggleDarkMode"></i>
-					</a>
-				</li>
-				<li>
-					<locale-changer/>
-				</li>
-			</ul>
+			<div class="layoutBoundary">
+				<ul>
+					<li>
+						<a href="/">
+							<i class="fa fa32 fa-home"></i><!--<br />
+							<span>{{$t('navigation.home')}}</span>-->
+						</a>
+					</li>
+					<router-link tag="li" :to="{name: 'index'}">
+						<a>
+							<i class="fa fa32 fa-search"></i>
+							<!--<br />
+						<span>{{$t('navigation.search')}}</span>-->
+						</a>
+					</router-link>
+					<router-link tag="li" :to="{name: 'favorite-markets'}">
+						<a>
+							<i class="fa fa32 fa-star"></i>
+							<!--<br />
+							<span>{{$t('navigation.favoriteMarkets')}}</span>-->
+						</a>
+					</router-link>
+					<li>
+						<a>
+							<i class="fa fa32 pointer" :class="{'fa-moon-o': !darkMode, 'fa-sun-o': darkMode}" @click="toggleDarkMode"></i><br />
+						</a>
+					</li>
+					<li>
+						<locale-changer />
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>

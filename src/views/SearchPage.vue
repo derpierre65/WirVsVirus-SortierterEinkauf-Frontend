@@ -9,7 +9,7 @@
 			<h1 class="text-center">{{$t('search.introPhrase')}}</h1><br>
 
 			<div class="row product-selection">
-				<div class="col-xs-6 col-md-3" v-for="product in products" :key="product.id">
+				<div class="col-xs-12 col-sm-6 col-md-4" v-for="product in products" :key="product.id">
 					<product-item :product="product" @click.native="productClick(product)" :class="{selected: selectedIds.includes(product.id)}" />
 				</div>
 			</div>
