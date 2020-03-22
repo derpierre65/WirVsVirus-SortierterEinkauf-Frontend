@@ -13,10 +13,14 @@
 
 h1 {
 	@include fontTitle;
+	@include fontBold;
+	text-align: center;
+	margin-top: 80px;
 }
 
 h2 {
 	@include fontSection;
+	margin-top: 30px;
 }
 
 h3 {
@@ -120,6 +124,12 @@ body {
 			color: orange !important;
 		}
 	}
+}
+
+.fa {
+	margin-top: 13px;
+	padding: 10px;
+	font-size: 20px;
 }
 
 .button-box {
