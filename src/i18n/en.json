@@ -108,5 +108,35 @@
 	},
 	"language": {
 		"change": "Change language"
+	},
+	"product": {
+		"toiletPaper": "toilet paper",
+		"bread": "bread",
+		"meat": "meat",
+		"fish": "fish",
+		"fruit": "fruit",
+		"vegetables": "vegetables",
+		"sugar": "sugar",
+		"coffee": "coffe",
+		"water": "water",
+		"rice": "rice",
+		"pizza": "pizza",
+		"pasta": "pasta",
+		"beef": "beef",
+		"pork": "pork",
+		"lamb": "lamb",
+		"oil": "oil",
+		"honey": "honey",
+		"milk": "milk",
+		"potatoes": "potatoes",
+		"nuts": "nuts",
+		"butter": "butter",
+		"cheese": "cheese",
+		"yoghurt": "yoghurt",
+		"spices": "spices",
+		"tea": "tea",
+		"tobacco": "tobacco",
+		"beer": "beer",
+		"snacks": "snacks"
 	}
 }

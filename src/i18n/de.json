@@ -112,5 +112,35 @@
 	},
 	"language": {
 		"change": "Sprache wechseln"
+	},
+	"product": {
+		"toiletPaper": "Toilettenpapier",
+		"bread": "Brot",
+		"meat": "Fleisch",
+		"fish": "Fisch",
+		"fruit": "Früchte",
+		"vegetables": "Gemüse",
+		"sugar": "Zucker",
+		"coffee": "Kaffee",
+		"water": "Wasser",
+		"rice": "Reis",
+		"pizza": "Pizza",
+		"pasta": "Pasta",
+		"beef": "Rind",
+		"pork": "Schwein",
+		"lamb": "Lamm",
+		"oil": "Öl",
+		"honey": "Honig",
+		"milk": "Milch",
+		"potatoes": "Kartoffeln",
+		"nuts": "Nüsse",
+		"butter": "Butter",
+		"cheese": "Käse",
+		"yoghurt": "Yogurt",
+		"spices": "Gewürze",
+		"tea": "Tee",
+		"tobacco": "Tabak",
+		"beer": "Bier",
+		"snacks": "Snacks"
 	}
 }
