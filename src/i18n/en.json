@@ -1,4 +1,64 @@
 {
+	"date": {
+		"datetimeFormat": "_(date.dateFormat), _(date.timeFormat)",
+		"dateFormat": "M jS Y",
+		"timeFormat": "g:i a",
+		"relative": {
+			"now": "A moment ago",
+			"hours": "A hour ago",
+			"hours_plural": "{{count}} hours ago",
+			"minutes": "A minute ago",
+			"minutes_plural": "{{count}} minutes ago",
+			"pastDays": "Yesterday, {{time}}",
+			"pastDays_plural": "{{day}}, {{time}}"
+		},
+		"monthNames": [
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December"
+		],
+		"monthNamesShort": [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"May",
+			"June",
+			"July",
+			"Aug",
+			"Sep",
+			"Oct",
+			"Nov",
+			"Dec"
+		],
+		"dayNames": [
+			"Sunday",
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday"
+		],
+		"dayNamesShort": [
+			"Sun",
+			"Mon",
+			"Tue",
+			"Wed",
+			"Thu",
+			"Fri",
+			"Sat"
+		]
+	},
 	"button": {
 		"close": "Close",
 		"submit": "Submit",

@@ -9,7 +9,7 @@
 				{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
 				{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
 				{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
-				{{$t('market.recorded_at')}}: {{market.recorded_at !== '' ? market.recorded_at : $t('statisticFeedback.noData')}}<br>
+				{{$t('market.recorded_at')}}: {{market.recorded_at|date}}<br>
 			</div>
 		</div>
 
