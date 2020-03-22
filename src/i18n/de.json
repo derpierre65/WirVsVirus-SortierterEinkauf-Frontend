@@ -82,9 +82,9 @@
 	"market": {
 		"information": "Informationen für",
 		"address": "Adresse",
-		"userFeedback": "Popularität",
+		"userFeedback": "Menschaufkommen",
 		"amountOfPeople": "Besucherzähler",
-		"averagePresenceTime": "Durchschnittliche Aufenhaltsdauer",
+		"averagePresenceTime": "Aufenhaltsdauer",
 		"recorded_at": "Eintrag vom",
 		"popularityRequest": "Wie viele Menschen waren einkaufen?"
 	},
@@ -97,7 +97,7 @@
 		"high": "Viele"
 	},
 	"statisticFeedback": {
-		"noData": " Keine Messdaten vorhanden"
+		"noData": " Keine Messdaten"
 	},
 	"navigation": {
 		"home": "Start",

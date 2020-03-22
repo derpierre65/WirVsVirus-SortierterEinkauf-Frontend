@@ -6,9 +6,9 @@
 					<h1>{{$t('market.information')}} <strong>{{market.name}}</strong></h1>
 					{{$t('market.address')}}: {{market.address}}<br>
 				</div>
-				border-left: solid 1.5px var(--base-color);
+				<!--border-left: solid 1.5px var(&#45;&#45;base-color);-->
 				<div class="market-detail">
-					{{$t('market.userFeedback')}}: {{market.userFeedback}}<br>
+					{{$t('market.userFeedback')}}: <span style="color: red">{{market.userFeedback}}</span><br>
 					{{$t('market.amountOfPeople')}}: {{market.amountOfPeople > 0 ? market.amountOfPeople : $t('statisticFeedback.noData')}}<br>
 					{{$t('market.averagePresenceTime')}}: {{market.averagePresenceTime > 0 ? market.averagePresenceTime : $t('statisticFeedback.noData')}}<br>
 					{{$t('market.recorded_at')}}: {{market.recorded_at|date}}<br>
@@ -74,14 +74,14 @@
 				data: {
 					market_id: 323343545,
 					googleTrack: 'DOLLETRACKID',
-					name: 'Aldi Meppen Süd',
-					address: 'MEPPEN SÜD',
+					name: 'Beispiel Store',
+					address: 'Beispiel-Straße 42, 1337 Fantasiestadt',
 					types: 'supermarkt',
 					ltdtude: '3',
 					lngtude: '3',
-					recorded_at: '2020-02-02 13:33:37',
-					userFeedback: 2,
-					amountOfPeople: 44,
+					recorded_at: '2020-03-22 13:37:37',
+					userFeedback: 'Hoch',
+					amountOfPeople: 42,
 					sizeOfMarket: 52,
 					averagePresenceTime: null
 				}
