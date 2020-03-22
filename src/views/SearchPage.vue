@@ -74,7 +74,7 @@
 					return state.complete();
 				}
 
-				this.axios.get('/locations/details?location_ids=' + JSON.stringify(locationIds), { params: { location_ids: locationIds } }).then((response) => {
+				this.axios.get('/locations/details?location_ids=' + JSON.stringify(locationIds)).then((response) => {
 					this.searchPage++;
 					let results = [];
 					for (let key in response.data) {
@@ -86,7 +86,6 @@
 					this.results.push(...results);
 					state.loaded();
 				}).catch((err) => {
-					console.log(123, err);
 					state.error();
 				});
 			},
@@ -95,6 +94,7 @@
 					return false;
 				}
 
+				this.$store.dispatch('setLoading', true);
 				this.axios.post('/search', {
 					lat: this.location.latitude,
 					lon: this.location.longitude,
@@ -110,6 +110,8 @@
 				}).catch((err) => {
 					console.log('error', err);
 					// TODO error
+				}).finally(() => {
+					this.$store.dispatch('setLoading', false);
 				});
 			},
 			getLocation() {
