@@ -39,12 +39,14 @@
 		</div>
 
 		<loading-spinner v-if="$store.state.loading" />
+		<portal-target name="modal" />
 	</div>
 </template>
 
 <script>
 	import LocaleChanger from './components/LanguageSwitch';
 	import LoadingSpinner from './components/LoadingSpinner';
+	import cssVars from 'css-vars-ponyfill';
 
 	export default {
 		components: { LoadingSpinner, LocaleChanger },
@@ -77,6 +79,8 @@
 				else {
 					document.body.classList.remove('dark');
 				}
+
+				cssVars();
 			}
 		}
 	};

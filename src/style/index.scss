@@ -55,7 +55,6 @@ h3 {
 	--background-color: #FAFAFA;
 	--modal-border: #DEE2E6;
 	font-family: 'Roboto', sans-serif;
-
 }
 
 .dark {
@@ -213,14 +212,14 @@ body {
 	margin-top: 20px;
 }
 
-.button {
+button {
 	display: inline-block;
 	border-radius: 4px;
 	background-color: var(--base-color);
 	border: 2px solid var(--base-color);
 	color: var(--base-font-color);
 	text-align: center;
-	font-size: 20px;
+	font-size: 16px;
 	padding: 10px;
 	transition: all 0.5s;
 	cursor: pointer;

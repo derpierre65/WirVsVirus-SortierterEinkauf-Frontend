@@ -59,6 +59,7 @@
 			"Sat"
 		]
 	},
+	"loading": "Loading …",
 	"button": {
 		"close": "Close",
 		"submit": "Submit",

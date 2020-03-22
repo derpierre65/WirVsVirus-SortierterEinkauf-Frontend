@@ -1,21 +1,23 @@
 <template>
-	<transition name="fade">
-		<div class="modal-mask">
-			<div class="modal-wrapper">
-				<div class="modal-container">
-					<div class="modal-header">
-						<h3>{{$t(title)}}</h3>
-					</div>
-					<div class="modal-body choice">
-						<slot />
-					</div>
-					<div class="modal-footer">
-						<button class="button" v-for="button in buttons" @click="buttonClick(button)">{{$t(button.title)}}</button>
+	<portal to="modal">
+		<transition name="fade">
+			<div class="modal-mask" @click="backdropClick">
+				<div class="modal-wrapper">
+					<div class="modal-container">
+						<div class="modal-header">
+							<h3>{{$t(title)}}</h3>
+						</div>
+						<div class="modal-body">
+							<slot />
+						</div>
+						<div class="modal-footer">
+							<button class="button" v-for="button in buttons" @click="buttonClick(button)">{{$t(button.title)}}</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</transition>
+		</transition>
+	</portal>
 </template>
 
 <script>
@@ -50,6 +52,12 @@
 			};
 		},
 		methods: {
+			backdropClick(event) {
+				let classList = event.target.classList;
+				if (classList.contains('modal-wrapper') || classList.contains('modal-mask')) {
+					this.close();
+				}
+			},
 			buttonClick(button) {
 				if ('function' === typeof button.cmd) {
 					button.cmd(this);

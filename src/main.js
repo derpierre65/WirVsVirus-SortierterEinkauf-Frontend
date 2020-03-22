@@ -2,6 +2,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import InfiniteLoading from 'vue-infinite-loading';
+import PortalVue from 'portal-vue';
 import App from './App.vue';
 import i18n from './i18n';
 import store from './store';
@@ -11,9 +12,10 @@ import './filter';
 axios.defaults.baseURL = 'https://sortierteseinkaufen.de/api/';
 axios.defaults.headers.common = {
 	...axios.defaults.headers.common,
-	'Access-Control-Allow-Origin': '*',
+	'Access-Control-Allow-Origin': '*'
 };
 
+Vue.use(PortalVue);
 Vue.use(VueAxios, axios);
 Vue.use(InfiniteLoading, {
 	slots: {

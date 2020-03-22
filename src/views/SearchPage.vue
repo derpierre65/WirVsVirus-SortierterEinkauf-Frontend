@@ -1,10 +1,10 @@
 <template>
 	<span v-if="!allowGeolocation">{{$t('geolocation.notAvailable')}}</span>
 	<div v-else>
-		<span class="location-box" v-if="!hasLocation">
-			{{$t('geolocation.accept')}}
+		<div class="location-box text-center" v-if="!hasLocation">
+			<p>{{$t('geolocation.accept')}}</p>
 			<button @click="getLocation">{{$t('geolocation.request')}}</button>
-		</span>
+		</div>
 		<div v-else>
 			<h1 class="text-center">{{$t('search.introPhrase')}}</h1><br>
 
@@ -15,7 +15,7 @@
 			</div>
 
 			<div class="button-box">
-				<button class="button" :disabled="!selectedIds.length" @click="search"><i class="fa fa-search"></i> {{$t('button.search')}}</button>
+				<button :disabled="!selectedIds.length" @click="search"><i class="fa fa-search"></i> {{$t('button.search')}}</button>
 			</div>
 		</div>
 
@@ -26,6 +26,10 @@
 
 			<infinite-loading type="search" @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
+
+		<modal :title="$t('geolocation.error')" v-if="geolocationModal" v-model="geolocationModal">
+			{{$t('geolocation.errors.' + geolocationError)}}
+		</modal>
 	</div>
 </template>
 
@@ -33,13 +37,16 @@
 	import SearchResult from '../components/SearchResult';
 	import ProductItem from '../components/ProductItem';
 	import {mapGetters, mapState} from 'vuex';
+	import Modal from '../components/Modal';
 
 	export default {
 		name: 'SearchPage',
-		components: { ProductItem, SearchResult },
+		components: { Modal, ProductItem, SearchResult },
 		data() {
 			return {
 				allowGeolocation: typeof navigator.geolocation !== 'undefined',
+				geolocationError: null,
+				geolocationModal: false,
 				results: [],
 				resultIds: [],
 				searchIdentifier: Date.now(),
@@ -115,13 +122,22 @@
 				});
 			},
 			getLocation() {
-				//TODO: figure out about IE
 				if (this.allowGeolocation && !this.hasLocation) {
-					navigator.geolocation.getCurrentPosition(({ coords }) => {
-							this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
-						},
-						({ errors }) => { console.log('Request failed');}
-					);
+					this.geolocationError = null;
+					this.$store.dispatch('setLoading', true);
+					let finished = (err, coords) => {
+						this.$store.dispatch('setLoading', false);
+						if (err) {
+							this.geolocationModal = true;
+							this.geolocationError = err.code;
+							return;
+						}
+
+						this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
+					};
+					navigator.geolocation.getCurrentPosition((data) => {
+						finished(null, data.coords);
+					}, finished);
 				}
 			}
 		}

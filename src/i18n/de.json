@@ -59,6 +59,7 @@
 			"Sa"
 		]
 	},
+	"loading": "Lädt …",
 	"button": {
 		"close": "Schließen",
 		"submit": "Absenden",
@@ -67,7 +68,13 @@
 	"geolocation": {
 		"notAvailable": "Ihr Browser unterstützt keine Geolocation.",
 		"accept": "Bitte bestätigen Sie Ihre aktuelle Position.",
-		"request": "Position abfragen"
+		"request": "Position abfragen",
+		"error": "Huch, es ist ein Fehler aufgtereten",
+		"errors": {
+			"1": "Wir besitzen keine Berechtigung um deine GPS-Position zu ermitteln. Versuchen Sie es erneut, sollte dieser Fehler weiterhin auftreten versuchen Sie einen anderen Browser.",
+			"2": "Ihre Position ist aktuell nicht verfügbar. Überprüfen Sie ob Ihre GPS-Position übermittelt werden darf.",
+			"3": "Die Abfrage der GPS-Position ist fehlgeschlagen, bitte versuchen Sie es erneut."
+		}
 	},
 	"market": {
 		"information": "Informationen für",
