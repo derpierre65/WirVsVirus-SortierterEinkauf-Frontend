@@ -66,3 +66,16 @@
 @mixin lineHeight {
 	line-height: 1.48;
 }
+
+@mixin inlineList {
+	display: flex;
+	flex-wrap: wrap;
+
+	> li {
+		flex: 0 1 auto;
+
+		&:not(:last-child) {
+			margin-right: 5px;
+		}
+	}
+}
