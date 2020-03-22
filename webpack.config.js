@@ -22,7 +22,7 @@ const minifyOptions = {
 };
 
 let mode = process.env.NODE_ENV || 'development';
-let publicPath = mode !== 'production' ? '/' : '/app/';
+let publicPath = '/app/';
 let appName = 'main';
 let plugins = [
 	new webpack.ProgressPlugin(),
@@ -102,7 +102,7 @@ let config = {
 					{
 						loader: 'sass-loader',
 						options: {
-							prependData: '$baseUrl: "' + (mode === 'development' ? '/' : '/app/') + '";'
+							prependData: '$baseUrl: "' + publicPath + '";'
 						}
 					}
 				]
