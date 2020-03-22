@@ -1,6 +1,8 @@
 <template>
 	<div class="product-item">
-		<img alt="Image" />
+		<!--TODO: INSERT CORRECT IMAGE-->
+		<!--<img alt="Image" />-->
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>{{product.product_name}}
 		{{product.product_name}}
 	</div>
 </template>
