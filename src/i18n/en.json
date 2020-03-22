@@ -75,7 +75,8 @@
 		"userFeedback": "Popularity",
 		"amountOfPeople": "Visitors",
 		"averagePresenceTime": "Average spending time",
-		"recorded_at": "Date entry"
+		"recorded_at": "Date entry",
+		"popularityRequest": "How many other people where shopping in this store?"
 	},
 	"userFeedback": {
 		"quantityEmpty": "Empty",
@@ -100,10 +101,10 @@
 	"search": {
 		"greeting": "Greetings!",
 		"introPhrase": "What would you like to buy?",
-		"results": "Searchresults"
-	},
-	"general": {
-		"popularityRequest": "How many other people where shopping in this store?"
+		"results": "Searchresults",
+		"searchResults": "Searchresults",
+		"noResults": "No results were found.",
+		"noMore": "No further results were found."
 	},
 	"language": {
 		"change": "Change language"

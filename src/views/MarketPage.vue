@@ -29,7 +29,7 @@
 		</modal>
 
 		<div class="feedback-popularity">
-			<h1>{{$t('general.popularityRequest')}}</h1>
+			<h1>{{$t('market.popularityRequest')}}</h1>
 
 			<ul class="choice">
 				<li><label><input name="population" type="radio"> {{$t('userFeedback.empty')}}</label></li>

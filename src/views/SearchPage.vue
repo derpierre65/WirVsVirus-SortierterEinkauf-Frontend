@@ -24,7 +24,8 @@
 			<h2><u>{{$t('search.results')}}</u></h2>
 
 			<search-result v-for="result of results" :key="result.id" :result="result" />
-			<infinite-loading @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
+
+			<infinite-loading type="search" @infinite="nextSearchPage" spinner="waveDots" :identifier="searchIdentifier" />
 		</template>
 	</div>
 </template>
@@ -147,10 +148,13 @@
 				this.searched = true;
 			},
 			getLocation() {
+				//TODO: figure out about IE
 				if (this.allowGeolocation && !this.hasLocation) {
 					navigator.geolocation.getCurrentPosition(({ coords }) => {
-						this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
-					});
+							this.$store.dispatch('setGeolocation', { latitude: coords.latitude, longitude: coords.longitude });
+						},
+						({ errors }) => { console.log('Request failed')}
+					);
 				}
 			}
 		}
