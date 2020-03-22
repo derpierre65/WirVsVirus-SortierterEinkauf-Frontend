@@ -29,9 +29,10 @@
 		"noData": " Keine Messdatenaten vorhanden"
 	},
 	"navigation": {
-		"home": "Suche",
+		"home": "Start",
+		"search": "Suche",
 		"info": "Informationen",
-		"market": "Märkte"
+		"favoriteMarkets": "Favorisierte Märkte"
 	},
 	"infoPage": {
 		"mainText": "Diese Website entstand im Rahmen des #WirvsVirus Hackathon vom 20.-22.03.2020."
