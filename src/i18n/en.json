@@ -29,9 +29,10 @@
 		"noData": "No data found"
 	},
 	"navigation": {
-		"home": "Search",
+		"home": "Home",
+		"search": "Search",
 		"info": "Information",
-		"market": "Stores"
+		"favoriteMarkets": "Favorite Stores"
 	},
 	"infoPage": {
 		"mainText": "This website was created within the #WirvsVirus Hackathon in Germany. 20.-22.03,2020."

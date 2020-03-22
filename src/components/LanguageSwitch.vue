@@ -1,5 +1,6 @@
 <template>
 	<div class="locale-changer">
+		<img :src="'assets/icons/flag/' + language + '.svg'" />
 		<select v-model="language">
 			<option v-for="(language, i) in languages" :key="`Lang${i}`" :value="language">{{ language }}</option>
 		</select>
