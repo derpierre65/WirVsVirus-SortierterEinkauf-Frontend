@@ -22,14 +22,14 @@ const minifyOptions = {
 };
 
 let mode = process.env.NODE_ENV || 'development';
-let publicPath = '/app/';
+let publicPath = mode !== 'production' ? '/' : '/app/';
 let appName = 'main';
 let plugins = [
 	new webpack.ProgressPlugin(),
 	new VueLoaderPlugin(),
 	new webpack.DefinePlugin({
 		'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
-		__APP_NAME__: JSON.stringify(appName)
+		publicPath: JSON.stringify(publicPath)
 	}),
 	new MiniCssExtractPlugin({
 		filename: 'assets/css/[name].css?v=[hash:8]'
