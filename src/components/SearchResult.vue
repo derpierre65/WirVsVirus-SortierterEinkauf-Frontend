@@ -1,17 +1,11 @@
 <template>
 	<div class="result">
-		<i class="fa fa-star" style="position:absolute;right:5px;top:0;color:grey" @click="star(result.id)" :class="{starred: this.$store.state.search.starred.includes(result.id)}"></i>
+		<i class="fa fa-star result-favorite" @click="star(result.id)" :class="{starred: this.$store.state.search.starred.includes(result.id)}"></i>
 		<router-link :to="{name: 'market', params: {id: result.id}}">{{result.name}}</router-link>
 		<br />
 		<address>Babelsberger Straße 16, Potsdam</address>
 	</div>
 </template>
-
-<style>
-	.starred {
-		color: orange !important;
-	}
-</style>
 
 <script>
 	export default {
