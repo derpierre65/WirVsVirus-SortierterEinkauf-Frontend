@@ -29,7 +29,7 @@ let plugins = [
 	new VueLoaderPlugin(),
 	new webpack.DefinePlugin({
 		'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
-		__APP_NAME__: JSON.stringify(appName)
+		publicPath: JSON.stringify(publicPath)
 	}),
 	new MiniCssExtractPlugin({
 		filename: 'assets/css/[name].css?v=[hash:8]'
@@ -102,7 +102,7 @@ let config = {
 					{
 						loader: 'sass-loader',
 						options: {
-							prependData: '$baseUrl: "' + (mode === 'development' ? '/' : '/app/') + '";'
+							prependData: '$baseUrl: "' + publicPath + '";'
 						}
 					}
 				]

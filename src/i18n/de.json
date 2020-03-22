@@ -39,7 +39,8 @@
 	},
 	"search": {
 		"greeting": "Herzlich Wilkommen!",
-		"introPhrase": "Nach welchen Produkten suchen Sie?"
+		"introPhrase": "Nach welchen Produkten suchen Sie?",
+		"results": "Suchergebnisse"
 	},
 	"general": {
 		"popularityRequest": "Wie viele Menschen waren einkaufen?",
@@ -47,5 +48,9 @@
 	},
 	"undefined": {
 		"noResults": "Es wurden keine Einträge gefunden."
+		"popularityRequest": "Wie viele Menschen waren einkaufen?"
+	},
+	"language": {
+		"change": "Sprache wechseln"
 	}
 }

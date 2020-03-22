@@ -30,6 +30,12 @@ Vue.use(InfiniteLoading, {
 
 Vue.config.productionTip = false;
 
+Vue.mixin({
+	data() {
+		return { baseUrl: publicPath };
+	}
+});
+
 new Vue({
 	el: '#app',
 	store,

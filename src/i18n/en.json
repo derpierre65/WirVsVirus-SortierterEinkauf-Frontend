@@ -39,7 +39,8 @@
 	},
 	"search": {
 		"greeting": "Greetings!",
-		"introPhrase": "What would you like to buy?"
+		"introPhrase": "What would you like to buy?",
+		"results": "Searchresults"
 	},
 	"general": {
 		"popularityRequest": "How many other people where shopping in this store?",
@@ -47,5 +48,9 @@
 	},
 	"undefined": {
 		"noResults": "No results were found."
+		"popularityRequest": "How many other people where shopping in this store?"
+	},
+	"language": {
+		"change": "Change language"
 	}
 }
